@@ -1,0 +1,32 @@
+<meta charset='utf-8' />
+<body>
+<table id='t' border="1" cellspacing="5" width="100%">
+<caption id='show'>九九乘法表</caption>
+</table>
+<script>
+  
+  var show = document.getElementById("show");
+  var table = document.getElementById("t");
+
+  show.innerHTML='九九乘法表';
+  for (var tr = 0;tr<10;tr++){
+    var atr = document.createElement("tr");
+    atr.align="center";
+    table.appendChild(atr);
+
+    for (var td = 1;td<tr+1;td++){
+      var atd = document.createElement("td");
+      atd.width='10%'
+      atd.data-a = td+'*'+tr+'='+td*tr
+      atd.innerHTML=tr*td;
+      atr.appendChild(atd);
+
+      atd.addEventListener('click',function (e) {
+        var tdClicked = e.target;
+        tdClicked.innerText=tdClicked.id;
+      });
+    }
+  }
+</script>
+
+</body>
