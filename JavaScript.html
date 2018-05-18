@@ -17,7 +17,7 @@
     for (var td = 1;td<tr+1;td++){
       var atd = document.createElement("td");
       atd.width='10%'
-      atd.data-a = td+'*'+tr+'='+td*tr
+      atd.id=td+'*'+tr+'='+td*tr
       atd.innerHTML=tr*td;
       atr.appendChild(atd);
 
