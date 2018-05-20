@@ -42,7 +42,7 @@ div {
 }
 .mouth{
     margin-top:-160px;
-    border-color:#00bcd400;
+    border-color:transparent;
     border-width:120px;
     box-shadow:0px 90px 0px #F44336;
 }
