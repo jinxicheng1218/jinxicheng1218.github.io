@@ -1,5 +1,7 @@
+<li><a href='index.html'>返回主页</a></li>
 <meta charset='utf-8' />
 <body>
+<p>点击乘法表中项，可查看算式。</p>
 <table id='t' border="1" cellspacing="5" width="100%">
 <caption id='show'>九九乘法表</caption>
 </table>
@@ -16,14 +18,27 @@
 
     for (var td = 1;td<tr+1;td++){
       var atd = document.createElement("td");
-      atd.width='10%'
-      atd.id=td+'*'+tr+'='+td*tr
+      atd.width='10%';
+      atd.dataset.a=td+'*'+tr+'='+td*tr;
+      atd.dataset.b=td*tr;
+      atd.dataset.c='false';
       atd.innerHTML=tr*td;
       atr.appendChild(atd);
 
       atd.addEventListener('click',function (e) {
         var tdClicked = e.target;
-        tdClicked.innerText=tdClicked.id;
+
+        if(tdClicked.dataset.c == 'true'){
+          tdClicked.innerText=tdClicked.dataset.a;
+          tdClicked.dataset.c='false';
+        }else{
+          tdClicked.innerText=tdClicked.dataset.b;
+          tdClicked.dataset.c='true';
+        }
+
+
+        
+
       });
     }
   }
