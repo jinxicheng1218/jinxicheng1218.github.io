@@ -1,0 +1,46 @@
+.title{
+    position:absolute;
+}
+#title1{  
+    top:30px;
+    left:15px;
+    color:rgb(255,170,0);
+    margin:0px;
+    font-size:50;
+}
+.orange{
+    color:transparent;
+    font-size:5;
+    transition:width 0.5s cubic-bezier(1, 0.01, 0, 1),height 0.5s cubic-bezier(1, 0.01, 0, 1),background 0.5s linear,border-width 0.4s linear,color 0.3s cubic-bezier(1, -0.01, 1, 1);
+    position:relative;
+    top:350px;
+    left:0px;
+    width:0;
+    height:0;
+    background:transparent;
+    z-index:10000;
+    border-style:solid;
+    border-width:0px;
+    border-radius:10%;
+    border-color:black;
+}
+#title1:active>.orange{
+    color:black;
+    left:50px;
+    width:300px;
+    height:100px;
+    background:rgba(255, 255, 255, 0.5);
+    border-style:solid;
+    border-width:5px;
+    
+}
+#title2{
+    top:80px;
+    left:125px;
+    font-size:20;
+}
+#worksList{
+    position:absolute;
+    top:200%;
+    left:80%;
+}
