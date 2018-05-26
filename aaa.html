@@ -1,0 +1,33 @@
+<a href="index.html">返回主页</a>
+<meta charset='utf-8' />
+<link href='board.css' rel='stylesheet'>
+<div class='board' along=center></div>
+<body>
+<script>
+var board = document.getElementsByClassName('board')[0];
+for(var row = 0;row<15;row++){
+    var newRow = document.createElement('div');
+    newRow.className='row';
+    board.append(newRow);
+    newRow.style.top=row*46+20;
+    for(var check = 0;check<15;check++){
+        var newCheck = document.createElement('div');
+
+        newCheck.className='check';
+        newCheck.dataset.row=row;
+        newCheck.dataset.check=check;
+        newCheck.style.left=check*46;
+        newRow.append(newCheck);
+        newCheck.addEventListener('click',function(e){
+            var element = e.target;
+            if(element.calssName = 'check'){
+              element.className='clickedCheck';
+            }
+        });
+    }
+}
+board.style.width=row*46+40;
+board.style.height=row*46+40;
+
+</script>
+</body>
