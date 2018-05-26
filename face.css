@@ -23,7 +23,7 @@ body{
 .eye{
     width:120px;
     height:120px;
-    background:transparent;
+    background:rgba(0,0,0,0);
     position:absolute;
     top:0px;
 }
@@ -176,7 +176,7 @@ body{
     left:220px;
     z-index:10;
     border-width:200px 100px;
-    border-color:#ff000000 #ff000000 #ffc107 #ffc10700;
+    border-color:transparent transparent orange transparent;
     border-style:solid;
     border-radius:100%; 
 }
