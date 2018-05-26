@@ -176,7 +176,7 @@ body{
     left:220px;
     z-index:10;
     border-width:200px 100px;
-    border-color:transparent transparent orange transparent;
+    border-color:transparent transparent yellow transparent;
     border-style:solid;
     border-radius:100%; 
 }
