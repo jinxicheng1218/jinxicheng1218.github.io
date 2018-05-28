@@ -1,13 +1,21 @@
 <a href="index.html">返回主页</a>
 <meta charset='utf-8' />
+<meta name='viewport' content='width=device-width; initial-scale=0.5; maximum-scale=0.5; minimum-scale=0.5; user-scalable=no; target-densityDpi=device-dpi'>
 <link href='board.css' rel='stylesheet'>
 <div class='board' along=center></div>
 <body>
 <script>
+document.oncontextmenu = function(){return false;}
+
+
+
 var board = document.getElementsByClassName('board')[0];
-board.dataset.gamestata='playing';
 var all=[];
 var bombNumber=0;
+
+
+
+
 function open(element){
     var y = Number(element.dataset.row);
     var x = Number(element.dataset.cell);
@@ -31,6 +39,8 @@ function open(element){
 }
 
 
+
+board.dataset.gamestata='playing';
 for(var row = 0;row<15;row++){
     var newRow = document.createElement('div');
     all.push([]);
