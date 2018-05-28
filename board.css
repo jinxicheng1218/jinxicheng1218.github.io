@@ -1,11 +1,18 @@
 div.board{
+    font-size:0em;
     background:rgb(180, 180, 180);
     position:relative;
     border-style:solid;
     border-color:rgb(10,140,190) rgb(0,130,180) rgb(30,160,210) rgb(40,170,220);
     border-width:8;
     border-radius:2%;
-    box-shadow:10px 10px 20px 0px;
+    box-shadow:10px 10px 20px 0px black;
+}
+div.board[data-gamestata='win']{
+    transition:font-size 1s cubic-bezier(0, 0.01, 0, 1);
+    color:#03A9F4;
+    text-align:center;
+    font-size:10em;
 }
 div.row,backRow{
     width:0px;
@@ -15,55 +22,51 @@ div.row,backRow{
     left:20px;
     position:relative;
 }
-div.check,.clickedCheck{
+div.cell/*,.clickedCheck*/{
     width:30;
     height:30;
+    color:black;
     background:rgb(200,202,200);
     position:absolute;
     border-style:solid;
     border-color:rgb(170,170,170) rgb(160,160,160) rgb(220,220,220) rgb(230,230,230);
     border-width:8 8 8 8;
+    font-size:30px;
+    text-align:center;
+    font-weight:900;
 }
-div.check:hover{
+div.cell:hover{
     background:rgb(180,230,230);
     border-color:rgb(170,220,220) rgb(160,210,210) rgb(190,240,240) rgb(200,250,250);
 }
-div.clickedCheck{
-    width:40;
-    height:40;
+.cell[data-display='true']{
+    width:45;
+    height:45;
     background:rgba(0, 0, 0, 0);
     border-color:rgba(0, 0, 0, 0.1);
-    box-shado
-    w 0 0 0 20px black;
+    box-shadow 0 0 0 20px black;
     border-width:1;
 }
-/*div.crossRow{
-    width:0px;
-    height:0px;
-    margin:0 0 2 0;
-    position:absolute;
-    left:20px;
-    position:relative;
+div[data-number='1']{
+    color:#3F51B5;
 }
-div.crossCheck{
-    width:40;
-    height:40;
-    border-radius:100%;
-    background:white;
-    position:absolute;
-    display:table-row;
-    border-style:solid;
-    border-color:black;
-    border-width:1;
+div[data-number='2']{
+    color:#4CAF50;
 }
-div.crossCheck.hover{
-    width:40;
-    height:40;
-    border-radius:100%;
-    background:black;
-    position:absolute;
-    display:table-row;
-    border-style:solid;
-    border-color:black;
-    border-width:1;
-}*/
+div[data-number='3']{
+    color:#FF5722;
+}
+div[data-number='4']{
+    color:#1d2b77;
+}
+div[data-number='5']{
+    color:#883b35;
+}
+div[data-number='6']{
+    color:#2f7532;
+}
+div.cell[data-number='9']{
+    color:transparent;
+    background:url(file:///C:/Users/admin/Documents/GitHub/jinxicheng1218.github.io/shi.png) -21px;
+    background-size:85px;
+}

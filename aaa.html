@@ -5,29 +5,92 @@
 <body>
 <script>
 var board = document.getElementsByClassName('board')[0];
+board.dataset.gamestata='playing';
+var all=[];
+var bombNumber=0;
+function open(element){
+    var y = Number(element.dataset.row);
+    var x = Number(element.dataset.cell);
+    element.dataset.display='true';
+    if(all[y][x] == 0){
+        element.innerHTML='';
+        for(var row = y-1;row<=y+1;row++){
+            for(var cell = x-1;cell<=x+1;cell++){
+                if(row>=0 && row<all.length && cell>=0 && cell<all.length){
+                    var a =document.querySelectorAll('[data-row="'+row+'"]')[cell];
+                    if(a.dataset.display == 'false'){
+                        open(a);
+                    }
+                }
+            }
+        }
+    }else{
+        element.innerHTML=all[y][x];
+        element.dataset.number=all[y][x];
+    }
+}
+
+
 for(var row = 0;row<15;row++){
     var newRow = document.createElement('div');
+    all.push([]);
     newRow.className='row';
     board.append(newRow);
     newRow.style.top=row*46+20;
-    for(var check = 0;check<15;check++){
-        var newCheck = document.createElement('div');
+    for(var cell = 0;cell<15;cell++){
+        if(Math.random()<0.1){
+            all[all.length-1].push(9);
+            bombNumber++;
+        }else{
+            all[all.length-1].push(0);
+        }
+        var newCell = document.createElement('div');
+        newCell.className='cell';
+        newCell.dataset.row=row;
+        newCell.dataset.cell=cell;
+        newCell.dataset.display='false';
+        newCell.style.left=cell*46;
+        newRow.append(newCell);
 
-        newCheck.className='check';
-        newCheck.dataset.row=row;
-        newCheck.dataset.check=check;
-        newCheck.style.left=check*46;
-        newRow.append(newCheck);
-        newCheck.addEventListener('click',function(e){
+        newCell.addEventListener('click',function(e){
             var element = e.target;
-            if(element.calssName = 'check'){
-              element.className='clickedCheck';
+            open(element);
+            if(element.dataset.number == '9'){
+                board.dataset.gamestata='gameOver';
+                var allCell = document.getElementsByClassName('cell');
+                for(var x = 0;x<allCell.length;x++){
+                    var object = allCell[x];
+                    open(object);
+                }
+            }else{
+                var allCell = document.querySelectorAll('[data-display="false"]')
+                if(allCell.length == bombNumber){
+                     board.dataset.gamestata='win';
+                     board.innerHTML='win!!!'
+                }
             }
-        });
+
+        }); 
     }
 }
-board.style.width=row*46+40;
-board.style.height=row*46+40;
+for(var placeRow = 0;placeRow<all.length;placeRow++){
+    for(var placeCell = 0;placeCell<all.length;placeCell++){
+        if(all[placeRow][placeCell] == 9){
+            for(var row = -1;row<2;row++){
+                for(var cell = -1;cell<2;cell++){
+                    if(placeRow+row>=0 && placeRow+row<all.length && placeCell+cell>=0 && placeCell+cell<all.length){
+                        if(all[placeRow+row][placeCell+cell] == 9){
+                        }else{
+                            all[placeRow+row][placeCell+cell]=all[placeRow+row][placeCell+cell]+1;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+board.style.width=15*46+40;
+board.style.height=15*46+40;
 
 </script>
 </body>
