@@ -3,24 +3,26 @@
 <a href='Minecraft_translation_index.html'>返回目录</a>
 <h1>《指令方块高级教程》</h1>
 <h3>第三章  复杂参数</h3>
-<p>在第二章中，我们讲了指令的格式和部分参数的使用，但是上一章介绍的参数都比较简单。这一章将会介绍更复杂的参数，它们可用的值更多，结构也更复杂。下面先来介绍第一个复杂参数X Y Z坐标。</p>
+<p>在第二章中，我们讲了指令的格式和部分参数的使用，上一章所介绍的参数都比较简单。而这一章将会介绍更加复杂的参数，它们可用的值更多，结构也更加复杂。下面先来介绍第一个复杂参数：X Y Z坐标。</p>
 <h4>X Y Z坐标</h4>
 <p>X Y Z坐标可指出我的世界中的某个精确位置，X Y Z坐标是沿着三个坐标轴延伸的，并且原点在坐标0 0 0上，因为原点固定，因此被称为绝对坐标。一般你的出生点就在原点周围。</p>
 <br/>
-<p>X：X坐标是在一条东西走向轴（X轴）上的一个点，坐标在原点东方时，它的值为正数。</p>
+<p>X：X坐标是在一条东西走向的轴（X轴）上的一个点，坐标在原点东方时，它的值为正数。</p>
 <br/>
-<p>Y：Y坐标是在一条垂直轴（Y轴）上的一点，坐标在原点上方时，它的值为正数。</p>
+<p>Y：Y坐标是在一条垂直的轴（Y轴）上的一点，坐标在原点上方时，它的值为正数。</p>
 <br/>
-<p>Z：Z坐标是在一条南北走向轴（Z轴）上的一点，坐标在原点南方时，它的值为正数。</p>
+<p>Z：Z坐标是在一条南北走向的轴（Z轴）上的一点，坐标在原点南方时，它的值为正数。</p>
 <br/>
 <p>如果你想查找你所处位置的坐标，请点击F3键打开纠错界面。并找到左下角的条目。</p>
+<table table border='1' cellspacing="0">
+<tr><td>条目名称</td><td>条目内容</td></tr>
+<tr><td>XYZ</td><td>用小数精确的显示你的坐标。</td></tr>
+<tr><td>Block</td><td>显示你所脚下方块的坐标（整数值）。</td></tr>
+<tr><td>Facing</td><td>显示你面向的方向</td></tr>
+<tr><td>Looking at</td><td>显示你准星所指的方块的名称，这一条只有你离那个方块够近时才会显示。</td></tr>
+</table>
 <br/>
-<p>XYZ：用小数精确的显示你的坐标。</p>
-<p>Block：显示你所脚下方块的坐标（整数值）。</p>
-<p>Facing：显示你面向的方向</p>
-<p>Looking at：显示你准星所指的方块的名称，这一条只有你离那个方块够近时才会显示</p>
-<br/>
-<p>当你需要在某处执行指令时，你可以前往那个地方来获取它的绝对坐标并在指令中使用。但是如果你想让指令总是在你脚下执行，你就必须使用相对坐标来实现。</p>
+<p>当你需要在某个固定位置执行指令时，你可以前往那里以获取它的绝对坐标并在指令中使用。但是如果你想让指令总是在你脚下执行，你就必须使用相对坐标来实现。</p>
 <h3>相对坐标</h3>
 <br/>
 <p>除了绝对坐标，你还可以使用相对坐标。和绝对坐标不同，相对坐标的原点不固定，它会把指令发出的位置作为原点。当你在聊天窗口使用相对坐标，则那个相对坐标的原点是你自己；如果是在指令方块中使用，相对坐标的原点将会是那个指令方块。</p>
@@ -32,3 +34,96 @@
 <p>~1 ~ ~-2 ：在这个例子中，X坐标是~1，这代表指令执将发出位置的东侧（因为~后面是正数所以在东侧，反之则是在西侧）1格处执行。Y坐标是~，表示指令执行位置的Y坐标和指令发出的位置的Y坐标相等。最后，Z坐标为~-2，表示指令在发出点的北侧（因为~后面是负数）2格处执行</p>
 <br/>
 <h3>目标选择器</h3>
+<br/>
+<p>你可以在一些指令中使用目标选择器。目标选择器可以指定一个或多个玩家及实体作为目标执行指令。你需要通过特殊的目标变量来指定目标，而不是通过玩家名或ID。</p>
+<br/>
+<p>@p：将离指令发出点最近的玩家作为目标。</p>
+<p>@r：将随机选择一个世界中的玩家作为目标。</p>
+<p>@a：将世界中的所有玩家都作为目标。</p>
+<p>@e：将世界中的所有实体都作为目标（包括所有玩家）</p>
+<br/>
+<p>你也可以在其后面加上修饰的参数，使目标选择器更加具体。目标选择器的参数包括：</p>
+<table border='1' cellspacing="0">
+<tr><td>参数名称</td><td>参数值</td></tr>
+<tr><td>x y z</td><td>这三个参数指定了选择目标的中心位置，一般会配合参数r来使用。（它们需要分开来使用，如果未使用它们，默认值将是指令发出点的坐标）</td></tr>
+<tr><td>r</td><td>这个参数将选择以xyz坐标为中心（上一个参数）指定半径范围内的所有实体作为目标。</td></tr>
+<tr><td>c</td><td>这个参数将选择最近的指定数量个实体作为目标</td></tr>
+<tr><td>name</td><td>这个参数将选择指定名称的实体作为目标</td></tr>
+<tr><td>type</td><td>这个参数将选择指定类型的实体作为目标</td></tr>
+</table>
+<br/>
+<p>这些参数必须在目标变量后面，并用方括号包围起来，你需要将一个参数名称和它的值用等号连起来组成一个参数对，参数对间要用逗号分隔。下面是使用目标选择器的例子，其中包括/xp和/tp（传送）。</p>
+<br/>
+<p>/xp 2l @p：给离指令发出者最近的玩家两经验等级。</p>
+<p>/xp 2l @p[x=-697,y=65,z=211,r=2]：给最近且和-697 65 211点的距离小于2方块的玩家两经验等级。</p>
+<p>/tp @a @r：把所有玩家传送到随机玩家的位置</p>
+<p>/tp @e[type=Creeper,c=4] @r：把最近的4只爬行者传送到随机玩家。天哪，这太邪恶了！</p>
+<br/>
+<h3>数据标签</h3>
+<p>在一些复杂指令中，你会发现其中有用大括号和中括号包裹起来的一长串文本，那就是数据标签。这些数据标签可以用来定义物品，实体及方块的属性和特征。它们通常被分组放在中括号和大括号中。</p>
+<br/>
+<p>[列表标签]：列表标签是一些用方括号包围起来的值或其他标签，它们需要用逗号分隔。</p>
+<br/>
+<p>{属性标签}：属性标签是一些用花括号包围起来的属性参数，例如“id”，它们的后面需要跟着一个冒号“:”和空格，然后是这个属性参数的值，例如“1”。</p>
+<h3>数据标签和数据值</h3>
+<p>数据标签不同于数据值。数据标签用来描述物品或实体的各种特性；而数据值指定物品或方块的附加ID，也就是它们的各种变种。例如，石头在指令中的名称是stone，其数据值默认是0，即为普通石头，如果你改变它的数据值，它将变成其他种类的石头，比如花岗
+<br/>
+<p>这里有一个非常复杂的例子，它给最近的玩家一个箱子，其中有一些物品。</p>
+<br/>
+<p>在定义物品前，需要先输入一组花括号来表示这是数据标签而不是一堆乱码，然后在这组花括号内输入“BlockEntityTag:”和另一组花括号来表示它内部的标签是用来定义这个箱子的，其内部的“item:”代表箱内的物品，但是，由于箱内不只有一种物品，因此要在物品标签集合外包裹方括号，方括号内部的每一组花括号都代表一种物品。</p>
+<p>数据标签如下：</p>
+<p>
+/give @p chest 1 0 {<br/>
+&nbsp BlockEntitlyTag:{<br/>
+&nbsp &nbsp &nbsp Items:[<br/>
+&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp {<br/>
+&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp id:1,<br/>
+&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Damage:6,<br/>
+&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Slot:0,<br/>
+&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Count:1<br/>
+&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp },<br/>
+&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp {<br/>
+&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp id:125,<br/>
+&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Damage:1,<br/>
+&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Slot:1,<br/>
+&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Count:12},<br/>
+&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp {<br/>
+&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp id :267,<br/>
+&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Slot:3,<br/>
+&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Count:1<br/>
+&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp },<br/>
+&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp {<br/>
+&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp id:326,<br/>
+&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Slot:3,<br/>
+&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Count:1<br/>
+&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp }<br/>
+&nbsp &nbsp &nbsp &nbsp &nbsp ]<br/>
+&nbsp &nbsp &nbsp }<br/>
+&nbsp }</p>
+<p>/give @p chest 1 0 {
+ BlockEntitlyTag:{
+   Items:[
+     {
+         id:1,
+         Damage:6,
+         Slot:0,
+         Count:1
+       },
+       {
+         id:125,
+         Damage:1,
+         Slot:1,
+         Count:12},
+       {
+         id :267,
+         Slot:3,
+         Count:1
+       },
+       {
+         id:326,
+         Slot:3,
+         Count:1
+       }
+     ]
+   }
+ }</p>
