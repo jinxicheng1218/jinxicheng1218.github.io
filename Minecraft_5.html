@@ -1,0 +1,65 @@
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width; initial-scale=0.5; maximum-scale=0.5; minimum-scale=0.5; user-scalable=no; target-densityDpi=device-dpi'>
+<a href='Minecraft_translation_index.html'>返回目录</a>
+<h1>《指令方块高级教程》</h1>
+<h3>第五章  基本指令</h3>
+<p>有些指令非常简单，而且任何人都可以使用。这就是基本指令：</p>
+<p>/help</p>
+<p>/different</p>
+<p>/gamemode</p>
+<p>list</p>
+<p>/me</p>
+<p>/say</p>
+<p>/tell</p>
+</br>
+<h3>/help指令</h3>
+<p>任何玩家都可以使用/help指令，它可以告诉你所有可以用的指令及它们的格式，如果指令过多，那么它们将分页显示，这时你需要在指令名称后面输入页码来查找指令。如果你希望了解某条指令的详细内容，你需要在“help”后加上你所要查询指令的名称。</p>
+<p><b>格式</b></p>
+<p><b>/help</b> [页码|指令名称]</p>
+<lu>
+<li>用页码（1~7）或指令名称为参数<b>[页码|指令名称]</b>赋值。</li>
+</lu>
+<p><b>例子</b></p>
+<p><b>
+/help<br/>
+/help 3<br/>
+/help give
+</b></p>
+<h3>/different指令</h3>
+<p>这条指令可以设置游戏的难度。</p>
+<p>举个例子，你可以通过这条指令将游戏模式改为和平，来让所有敌对生物消失，然后尽情享受盖房子和挖矿的乐趣；等到你想浴血奋战的时候，用指令将模式调为困难，然后享受战争带来的乐趣。</p>
+<p><b>格式</b></p>
+<p><b>/difficulty &lt难度等级&gt</b></p>
+<lu>
+<li>用下列难度等级为&lt难度等级&gt赋值：<br/><br/><lu>
+  <li><b>和平：</b>peaceful或p或0</li>
+  <li><b>简单：</b>easy或e或1</li>
+  <li><b>普通：</b>normal或n或2</li>
+  <li><b>困难：</b>hard或h或3</li>
+</lu>
+</li>
+</lu>
+<p><b>例子</b></p>
+<p><b>/difficulty peaceful<br/>
+/difficulty h<br/>
+/difficulty 1</b></p>
+<br/>
+<h3>/gamemode指令</h3>
+<p>这条指令可以设定玩家的游戏模式，我的世界有四种模式：生存，创造，冒险和旁观（极限模式并不算是真的的游戏模式，它只是一个集合了困难难度和无法复活的特殊地图）。这条指令在一些游戏地图中非常有用，你可以用它把死亡（或退出游戏）的玩家变成旁观模式。</p>
+<p><b>格式</b></p>
+<p><b>/gamemode &lt模式&gt [玩家]</b></p>
+<lu>
+<li>用下列游戏模式为&lt模式&gt赋值：<br/><br/><lu>
+  <li><b>生存：</b>survival或s或0</li>
+  <li><b>创造：</b>creative或c或1</li>
+  <li><b>冒险：</b>adventure或a或2</li>
+  <li><b>旁观：</b>spectator或sp或3</li>
+</lu>
+</li>
+<li>[玩家]是可选参数，它代表被设置模式的玩家，你需要用玩家名或目标选择器为[玩家]赋值。如果不声明这个参数，指令将改变指令发出者的游戏模式，因此，在指令方块中必须使用这个参数。</li>
+</lu>
+<p><b>例子</b></p>
+<p><b>/gamemode s notch<br/>
+/gamemode 0 notch<br/>
+/gamemode c<br/>
+/gamemode sp @a</b></p>
