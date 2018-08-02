@@ -4,62 +4,85 @@
 <h1>《指令方块高级教程》</h1>
 <h3>第五章  基本指令</h3>
 <p>有些指令非常简单，而且任何人都可以使用。这就是基本指令：</p>
-<p>/help</p>
-<p>/different</p>
-<p>/gamemode</p>
-<p>list</p>
-<p>/me</p>
-<p>/say</p>
-<p>/tell</p>
+<a href="#help">/help</a><br/>
+<a href="#different">/different</a><br/>
+<a href="#gamemode">/gamemode</a><br/>
+<a href="#list">/list</a><br/>
+<a href="#me">/me</a><br/>
+<a href="#say">/say</a><br/>
+<a href="#tell">/tell</a><br/>
 </br>
-<h3>/help指令</h3>
+<hr/>
+<h3 id="help">/help指令</h3>
 <p>任何玩家都可以使用/help指令，它可以告诉你所有可以用的指令及它们的格式，如果指令过多，那么它们将分页显示，这时你需要在指令名称后面输入页码来查找指令。如果你希望了解某条指令的详细内容，你需要在“help”后加上你所要查询指令的名称。</p>
 <p><b>格式</b></p>
 <p><b>/help</b> [页码|指令名称]</p>
-<lu>
+<ul>
 <li>用页码（1~7）或指令名称为参数<b>[页码|指令名称]</b>赋值。</li>
-</lu>
+</ul>
 <p><b>例子</b></p>
 <p><b>
 /help<br/>
 /help 3<br/>
 /help give
 </b></p>
-<h3>/different指令</h3>
+<br/>
+<hr/>
+<h3 id="different">/different指令</h3>
 <p>这条指令可以设置游戏的难度。</p>
 <p>举个例子，你可以通过这条指令将游戏模式改为和平，来让所有敌对生物消失，然后尽情享受盖房子和挖矿的乐趣；等到你想浴血奋战的时候，用指令将模式调为困难，然后享受战争带来的乐趣。</p>
 <p><b>格式</b></p>
 <p><b>/difficulty &lt难度等级&gt</b></p>
-<lu>
-<li>用下列难度等级为&lt难度等级&gt赋值：<br/><br/><lu>
+<ul>
+<li>用下列难度等级为&lt难度等级&gt赋值：<br/><br/></li>
+<ul>
   <li><b>和平：</b>peaceful或p或0</li>
   <li><b>简单：</b>easy或e或1</li>
   <li><b>普通：</b>normal或n或2</li>
   <li><b>困难：</b>hard或h或3</li>
-</lu>
-</li>
-</lu>
+</ul>
+</ul>
 <p><b>例子</b></p>
 <p><b>/difficulty peaceful<br/>
 /difficulty h<br/>
 /difficulty 1</b></p>
 <br/>
-<h3>/gamemode指令</h3>
+<hr/>
+<h3 id="gamemode">/gamemode指令</h3>
 <p>这条指令可以设定玩家的游戏模式，我的世界有四种模式：生存，创造，冒险和旁观（极限模式并不算是真的的游戏模式，它只是一个集合了困难难度和无法复活的特殊地图）。这条指令在一些游戏地图中非常有用，你可以用它把死亡（或退出游戏）的玩家变成旁观模式。</p>
 <p><b>格式</b></p>
 <p><b>/gamemode &lt模式&gt [玩家]</b></p>
-<lu>
-<li>用下列游戏模式为&lt模式&gt赋值：<br/><br/><lu>
+<ul>
+<li>用下列游戏模式为&lt模式&gt赋值：<br/></li>
+<ul>
   <li><b>生存：</b>survival或s或0</li>
   <li><b>创造：</b>creative或c或1</li>
   <li><b>冒险：</b>adventure或a或2</li>
   <li><b>旁观：</b>spectator或sp或3</li>
-</lu>
-</li>
+</ul>
 <li>[玩家]是可选参数，它代表被设置模式的玩家，你需要用玩家名或目标选择器为[玩家]赋值。如果不声明这个参数，指令将改变指令发出者的游戏模式，因此，在指令方块中必须使用这个参数。</li>
-</lu>
+</ul>
 <p><b>例子</b></p>
 <p><b>/gamemode s notch<br/>
 /gamemode 0 notch<br/>
 /gamemode c<br/>
 /gamemode sp @a</b></p>
+<hr/>
+<h3 id="list">/list指令</h3>
+<p>任何权限的玩家都可以使用这条指令，它将列出所有地图中所有的玩家。</p>
+<p><b>格式</b></p>
+<p>直接使用/list，无需加任何参数（也无法加任何参数）。</p>
+<hr/>
+<h3 id="me">/me指令</h3>
+<p>任何权限的玩家都可以使用此指令，它将在聊天窗口发出消息，消息的发出者就是指令发出者。</p>
+<p><b>格式</b></p>
+<h4>/me &lt任意文本&gt</h4>
+<ul><li>你需要用你想发出的信息为&lt任意文本&gt赋值，其中可以包含选择器（下面会详细介绍）。</li></ul>
+<p><b>例子</b></p>
+<h4>/me 做了个鬼脸</h4>
+<p>这条指令执行后，聊天窗口将显示：*meganfair 做了个鬼脸（注：megangair是在作者的名字）</p>
+<p>这条信息是以*开头，后面跟着你的用户名，这可以让玩家知道，它是谁发出来的。</p>
+<p>如果你是操作员，你可以在&lt任意文本&gt中使用选择器，当指令执行后，选择器将变成符合条件的玩家和实体。如果你在指令方块中执行它，消息发出者将变为“@”，“@”是指令方块的默认名称，当然，你可以使用铁砧将指令方块重新命名，消息发出者也将变为指令方块的新名称。假如你把指令方块的名称改为“怪物”，并执行/me指令，聊天窗口将显示</p>
+<p>*怪物 做了个鬼脸</p>
+<hr/>
+<h3 id="say">/say指令</h3>
