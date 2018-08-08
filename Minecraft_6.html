@@ -25,3 +25,23 @@
 <li>冒险模式：adventure或a或2</li>
 <li>旁观模式：spector或sp或3</li>
 </ul></ul>
+<p><b>例子</b></p>
+<p><b>/defaultgamemode adventure<br/>/defaultgamemode 3<br/>/defaultgamemode c</b></p>
+<hr/>
+<h3 id="gamerule">/gamerule指令</h3>
+<p>/gamerule指令允许你设置和查询一些基本的游戏规则。你可以创建一个新的游戏规则，并设置和读取它的值。</p>
+<p><b>格式</b></p>
+<h4>/gamerule &lt规则名&gt [值]</h4>
+<ul><li>用游戏规则的名称为&lt规则名&gt赋值</li><li>如果你希望改变一些规则，你需要用到可选参数[值]，你需要让它的值为true或false（有时会用到数字）。如果你不使用这个参数，你将看到此规则当前的值。</li><p>规则及它们的值如下：</p></ul>
+<table border="1" cellspacing="0" width='100%'>
+<tr><td colspan="3" align="center"><b>游戏规则</b>*</td></tr>
+<tr><td align="center" width="33.3%">规则</td><td align="center" width="33.3%">描述</td><td align="center" width="33.3%">值</td></tr>
+<tr><td>commandBlockOutput</td><td>它的默认值是“true”（真） ，这时如果任何指令方块执行指令，操作员将会收到指令。如果值是“false”（假），操作员将不再收到指令方块执行指令的消息。</td><td>true（真，也就是开启）或false（假，也就是关闭）</td></tr>
+<tr><td>doDaylightCycle</td><td>它的默认值是“true”，这让昼夜正常更替，当值为“false”时，昼夜更替将会停止。</td><td>true或false</td></tr>
+<tr><td>doMobLoot</td><td>它的默认值为“true”，这让生物死亡时产生掉落物品，例如僵尸掉落腐肉。当值为“false”时，生物将不再产生掉落物品，你将再也无法得到肉类，你将不得不成为一个素食主义者。</td><td>true或false</td></tr>
+<tr><td>doMobSpawning</td><td>它的默认值为“true”，这让一些生物可以自然生成（包括敌对生物和非敌对生物），当值为“false”时，生物将不能自然生成，但是刷怪笼仍可以生成生物。</td><td>true或false</td></tr>
+<tr><td>keepInventory</td><td>它的默认值为“false”，因此，如果你死了，你背包里的东西会掉的到处都是，如果把它的值改为“true”，那么玩家死后的物品还会保存在他的身上。这经常被用在一些小游戏中。</td><td>true或false</td></tr>
+<tr><td>mobGriefing</td><td>它的默认值为“true”，这时，生物可以改变方块，例如爬行者会炸掉你的房子而羊会吃掉你家后院的草坪。当它的值为“false”时，生物将不能改变和破坏方块。</td><td>true或false</td></tr>
+<tr><td>naturalRegeneration</td><td>默认值为“true”，这时，玩家可以在饥饿值满的时候恢复生命。当值为false时，玩家将无法自动恢复生命。</td><td>true或false</td></tr>
+<tr><td>showDeathMessage</td><td>默认值为“true”，当玩家死亡后，聊天栏将出现提示。当值为“false”时，玩家死亡后聊天栏什么也不会出现。</td><td>true或false</td></tr>
+</table>
