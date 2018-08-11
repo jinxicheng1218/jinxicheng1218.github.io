@@ -45,3 +45,116 @@
 <tr><td>naturalRegeneration</td><td>默认值为“true”，这时，玩家可以在饥饿值满的时候恢复生命。当值为false时，玩家将无法自动恢复生命。</td><td>true或false</td></tr>
 <tr><td>showDeathMessage</td><td>默认值为“true”，当玩家死亡后，聊天栏将出现提示。当值为“false”时，玩家死亡后聊天栏什么也不会出现。</td><td>true或false</td></tr>
 </table>
+<p>*这个表格比较简略，如果你想了解全部的游戏规则。请去“我的世界维基”查找。</p>
+<a href="http://minecraft.gamepedia.com/Commands#gamemode">http://minecraft.gamepedia.com/Commands#gamemode</a>
+<p><b>例子</b></p>
+<p><b>/gamerule mobGriefing false<br/>/gamerule NewGameRule 30<br/>通过第二个例子，你可以知道如何创建一个新的游戏规则。</b></p>
+<hr/>
+<h3 id="seed">/seed指令</h3>
+<p>/seed指令可以告诉你，你所处地图的种子。如果你以文字作为种子，例如“可怕的新世界”，则显示的种子仍是数字：程序会把种子中的文字全部转化为数字。在同一游戏版本中，相同种子创造的世界也是相同的。因此你可以将种子分享给你的朋友（必须是相同版本），这样，他们就可以玩与你一样的地图了。有一些在线生物群系查找器，你可以通过世界的种子来找到对应地图中的一些生物群系。例如，当你需要一些粘液球时，你只需要在查找器中寻找附近的史莱姆出生地（沼泽生物群系）的位置就可以了。查找器地址：<br/><b><a href='http://chunkbase.com/'>chunkbase.com</a></b></p>
+<p><b>格式</b></p>
+<p>这个指令什么参数都没有，直接输入/seed就可以了。</p>
+<hr/>
+<h3 id="setworldspawn">/setworldspawn指令</h3>
+<p>/setworldspawn指令可以设置世界的出生点，设置出生点后，第一次进入游戏的玩家和未设置出生点的玩家死亡后将在新的出生点复活。你可以通过这个指令来制作一个小游戏或冒险地图：当玩家失败（死亡）后，重生在一个特殊的地方。</p>
+<p><b>格式</b></p>
+<h4>/setworldspawn [x y z]</h4>
+<ul><li>[x y z]是可选参数，当你为其赋上坐标后，出生点将被设置在对应坐标，如果你不为其赋值，出生点将被设置在指令发出的地方。</li></ul>
+<hr/>
+<h3 id="time">/time指令</h3>
+<p>/time指令可以对时间进行多种操作，你可以用它将世界时间改为某个具体时间点或较为粗略的白天和晚上，还可以使时间快进（或快退）一段时间，以及你进入地图的时长或一游戏天已经过去了多少。</p>
+<p>在我的世界中使用的是一种特殊的单位来描述时间，我们就叫它时间单位（tick），一秒等于20个时间单位，所以一个时间单位就是0.05秒。在我的世界中，一次昼夜循环需要20分钟，也就是24000个时间单位。因此，现实世界中的50秒就是我的世界中的一小时。</p>
+<p><b>格式</b></p>
+<h4>/time &lt add|query|set &gt &lt值&gt</h4>
+<ul>
+<li>用“add”、“query”、“set”为参数&lt add|query|set &gt赋值</li>
+<ul>
+<li>如果你选用“add”作为&lt add|query|set &gt参数的值，那么你需要以-2147483647到2147483647间的一个数字作为参数&lt值&gt的值，世界时间将会快进（快退）这段时间（以我的世界时间单位为标准）。如果你想快进一游戏小时，你需要在&lt值&gt处输入1000，如果要快进一游戏日，需要输入24000。</li>
+<li>如果你选用“query”作为&lt add|query|set&gt参数的值，那你需要用“gametime”或“daytime”作为参数&lt值&gt的值。如果值为“gametime”，聊天窗口会显示你进入这个地图的累计时间；如果值为“daytime”，聊天窗口会告诉你游戏中的一天一个过去了多少。</li>
+<li>如果用“set”作为&lt add|query|set&gt参数的值，你需要用“day”或“night”或0到2147483647之间的一个数为参数&lt值&gt赋值，这会将时间跳转到你输入的值。</li>
+</ul>
+</ul>
+<p><b>/time set day<br/>
+/time set 13000<br/>
+/time add 24000<br/>
+/time query gametime</b></p>
+<hr/>
+<h3 id="toggledownfall">/toggledownfall指令</h3>
+<p>/toggledownfall指令的功能和格式都非常简单，它可以使天气反转，也就是如果执行指令时正在下雨，那么天气将会转晴，反之则会下雨。</p>
+<p><b>格式</b></p>
+<ul><li>这条指令不没有参数，你可以直接输入/toggledownfall。</li></ul>
+<hr/>
+<h3 id="weather">/weather指令</h3>
+<p>你可以使用/weather指令来设置地图的天气（我的世界中有三种天气，分别为：晴天，雨天和雷暴）。当然，天气的效果也取决于你所处的生物群系，当你身处寒带的生物群系，在雨天你将看到天空飘落雪花而不是雨滴；而在沙漠生物群系，你无法看到任何的降水，只有你转移到其他生物群系之后才可以恢复正常。你可以自行控制某种天气维持的时间，当然，你也可以让游戏自动决定。</p>
+<p><b>格式</b></p>
+<h3>/weather &lt clear|rian|thunder &gt [时长]</h3>
+<ul><li>用clear（晴天），rian（雨天），thunder（雷暴）中的一个为参数&lt clear|rian|thunder &gt赋值。</li><li>[时长]是可选参数，你可以用天气持续的秒数（1至1000000秒）为其赋值，如果你不为其赋值，程序将自动决定其时长。</li></ul>
+<p><b>例子</b></p>
+<p><b>/weather clear 1000000<br/>/weather thunder</b></p>
+<hr/>
+<h3 id="worldborder">/worldborder指令</h3>
+<p>我的世界中有8种/worldborder指令！它们分别用来对世界边界执行不同操作。那么，什么是世界边界呢？下面由我来介绍它。世界边界原是一个在世界的尽头设置的一堵想前一样的东西（半透明的墙），但是一些地图制作者常用它们来制作一些特殊的地图或是小游戏，例如最近服务器中非常火的《绝地求生》游戏。有时，多人服务器还通过设置边界来限制玩家的活动范围。世界边界的形状是正方形，中心点在坐标0,0处（因为高度无限，因此无法设置y坐标）。你可以设置它的半径（尽管它是正方形的），你可以将半径理解为中心一条边的距离。你还可以设置它的动态扩张和缩小。（静态的边界是蓝色的，扩张的边界是绿色的，而正在收缩的边界是红色的）</p>
+<br/>
+<h3>/worldborder add</h3>
+<p>/worldborder add 指令可以在一段时间内（以秒为单位）平滑扩大或缩小边界。</p>
+<p><b>格式</b></p>
+<h4>/worldborder add &lt方块数&gt [时间]</h4>
+<ul><li>你需要用边界扩大（或缩小，缩小时值为负数）的方块数为&lt方块数&gt赋值。</li>
+<li>这是可选参数，用边界扩大的时长（秒）为参数[时间]赋值，如果不为其赋值，边界将瞬间改变到你设定的值。</il></ul>
+<p><b>例子<br/>
+/worldborder add 100 3600</b></p>
+<br/>
+<h3>/worldborder center</h3>
+<p>/worldborder center指令可以设置边界的中心位置。默认为0,0</p>
+<p><b>格式<br/></b>
+<h4>/worldborder center &lt x &gt &lt z &gt</h4>
+<ul><li>用中心点的x坐标和z坐标为参数&lt x &gt &lt z &gt赋值。</li></ul>
+<p><b>例子
+<br/>/worldborder center 100 -100</b></p>
+<br/>
+<h3>/worldborder damage amount</h3>
+<p>这条指令可以设置超出缓冲区的玩家所受到的伤害，默认是超出一个方块多受到0.2点的伤害。</p>
+<p><b>格式<br/></b>
+<h4>/worldborder damage amount &lt 伤害 &gt</h4>
+<ul><li>用每超出一格多受到的伤害点数，为&lt 伤害 &gt赋值。</li></ul>
+<p><b>例子<br/>/worldborder damage amount 1</b></p>
+<br/>
+<h3>/worldborder damage buffer</h3>
+<p>这个指令可以设置缓冲区的大小，所谓缓冲区就是，在玩家超出边界后，并不会立即受到伤害，只有超出缓冲区后，才会受到伤害。</p>
+<p><b>格式<br/></b>
+<h4>/worldborder damage buffer &lt 缓冲区大小 &gt</h4>
+<ul><li>用缓冲区的大小（方块数），为&lt 缓冲区大小 &gt赋值。</li></ul>
+<p><b>例子<br/>
+/worldborder damage buffer 3</b></p>
+<br/>
+<h3>/worldborder get</h3>
+<p>这个指令可以告诉你边界的大小。</p>
+<p><b>格式</b></p>
+<h4>/worldborder get</h4>
+<ul><li>这条指令没有参数，你只需要输入/worldborder get即可。</li></ul>
+<br/>
+<h3>/worldborder set</h3>
+<p>这条指令与 worldborder add 指令的功能和结构类似，这条指令可以瞬间设置世界边界的大小，也可以让边界在一段时间内平滑变换到设置的大小。</p>
+<p><b>格式</b></p>
+<h4>/worldborder set &lt边界大小&gt [时间]</h4>
+<ul><li>用新的边界半径为&lt边界大小&gt赋值。</li><li>[时间]是可选参数，你可以用边界变换的时长为其赋值，如果你不使用这个参数，边界将瞬间变换。</li></ul>
+<p><b>例子<br/>/worldborder set 500 7200
+</b></p>
+<br/>
+<h3>/worldborder warning distance</h3>
+<p>这条指令可以设置警告区域的大小，当玩家进入警告区域，他的屏幕边缘会泛红。默认警告区的大小为5格。</p>
+<p><b>格式</b></p>
+<h4>/worldborder warning distance &lt警告区大小&gt</h4>
+<ul><li>用警告区的大小（格数）为参数 &lt警告区大小&gt赋值</li></ul>
+<p><b>例子<br/>
+/worldborder warning distance 15
+</b></p>
+<br/>
+<h3>/worldborder warning time</h3>
+<p>这条指令可以设置提前预警的时间，例如，当边界正在收缩，并且将在15秒后接触玩家时，玩家将收到警告。你可以将15改为其他数字。</p>
+<p><b>格式</b></p>
+<h4>/worldborder warning time &lt提前预警时间&gt</h4>
+<ul><li>提前预警的时间（秒）为参数 &lt提前预警时间&gt赋值</li></ul>
+<p><b>例子<br/>
+/worldborder warning time 120
+</b></p>
