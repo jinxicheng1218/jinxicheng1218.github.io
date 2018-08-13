@@ -1,0 +1,21 @@
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width; initial-scale=0.5; maximum-scale=0.5; minimum-scale=0.5; user-scalable=no; target-densityDpi=device-dpi'>
+<a href='Minecraft_translation_index.html'>返回目录</a>
+<h1>《指令方块高级教程》</h1>
+<h3>第七章  方块指令</h3>
+<p>方块指令只对方块起作用，所谓方块，就是那些你在我的世界中最常看到的东西，它们可以被放置，可以被破坏，而且不会像生物那样乱动，像金合欢木，僵尸头颅（饰品）等。</p>
+<p>方块指令包括：</p>
+<a href="#blockdata">/blockdata</a>
+<a href="#clone">/clone</a>
+<a href="#fill">/fill</a>
+<a href="#replaceitem">/replaceitem</a>
+<a href="#setblock">/setblock</a>
+<hr/>
+<h3 id="blockdata">/blockdata指令</h3>
+<p>一些方块拥有用于描述自身特殊属性的数据标签，它们可不像方块类型或是它的坐标那么简单。不同的方块拥有不同的数据标签，例如花盆：花盆拥有两个数据标签，一个是用于描述它其中种植的植物种类（例如花或树苗），第二个标签则是描述其中植物的具体类型</p>
+<p><b>格式</b></p>
+<h4>/blockdata &lt x y z&gt &lt数据标签&gt</h4>
+<ul><li>用你要改变方块的坐标为参数&lt x y z&gt赋值</li></ul>
+<ul><li>用对应方块的数据标签（一个或多个，还记得吗，多个数据标签要用方括号括起来）为参数&lt 数据标签&gt赋值，数据标签必须是一个数据名配一个数据值，如：{Item:spling}。</li></ul>
+<p><b>/blockdata ~ ~ ~1 {Item:sapling,Data:2}</b></p>
+<>
