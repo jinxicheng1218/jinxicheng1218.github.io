@@ -57,8 +57,31 @@
 <li>用粒子生成的位置为参数&lt x y z&gt赋值</li>
 <li>用粒子生成的范围为参数&lt xd yd zd&gt赋值，所谓粒子生成的范围，就是以上一个参数&lt x y z&gt为中心，生成粒子区域的宽度（延x轴），高度（延y轴）和另一方向上的宽度（延z轴）。例如，当你用1 1 1为它赋值，则粒子会在中心点周围1格内生成；当参数[数量]为设置或是值为0时，它还可以改变某些粒子的颜色。</li>
 <li>用粒子运动的速度为参数&lt速度&gt赋值，它的值不能小于0。过快的粒子速度会导致粒子存在的时间非常短，以至于你很难看到它们。所以，让粒子运动得慢一点（速度为0.05左右）比较好。</li>
-<li>[数量]是可选参数，你可以用单位时间内粒子生成的数量为其赋值，大于0（不包括0）。切忌使用过高的数值，则会导致你的游戏卡顿甚至是崩溃。在我的电脑中，大约从生成一万个粒子时开始出现卡顿。</li>
+<li>[数量]是可选参数，你可以用单位时间内粒子生成的数量为其赋值，大于0（不包括0）。切忌使用过高的数值，则会导致你的游戏卡顿甚至是崩溃。在我的电脑中，从生成大约一万个粒子时开始出现卡顿。</li>
 <li>[模式]是可选参数，它有两个值，分别是“正常”和“强制”。默认值为“正常”：生成的粒子数量将受到玩家在视频设置中设定的粒子量的限制。反之则不会受限。</li>
 </ul>
 <p><b>例子<br/>/particle happyVillager ~2 ~ ~2 1 1 1 .05 1000<br/>
 /particle mobSpell ~2 ~1 ~ 2 3 1 1 5000</b></p>
+
+<hr/>
+<h3 id="summon">/summon指令</h3>
+<p>/summon指令非常有用，你可以通过它来生成我的世界中的任何实体，而且其中一些是你平时无法看到的生物，例如骷髅马。你还可以改变实体的数据标签，例如让一个怪物穿上附魔的盔甲。</p>
+<p><b>格式</b></p>
+<h4>/summon &lt实体名称&gt [x y z] [数据标签]</h4>
+<ul>
+<li>用实体ID为参数&lt实体名称&gt赋值</li>
+<li>[x y z]是可选参数，用实体生成的位置为其赋值。</li>
+<li>[数据标签]是可选参数，用实体的数据标签为其赋值。</li>
+</ul>
+<p><b>例子<br/>
+生成7个叠在一起的史莱姆，由下向上一个比一个大:<br/>
+/summon Slime ~ ~ ~ {Size:15,Riding:{id:Slime,Size:13,Riding:{id:Slime,Size:11,Riding:{id:Slime,Size:9,Riding:{id:Slime,Size:7,Riding:{id:Slime,Size:5,Riding:{id:Slime,Size:3}}}}}}}<br/>
+生成一个用钻石换泥土的村民：<br/>
+/summon Villager ~1 ~ ~ {Offers:{Recipes:[{buy: {id:dirt,Count:1},sell:{id:diamond,Count:1},rewardExp:false}]}}<br/>
+生成一个带鞍的僵尸马：<br/>
+/summon EntityHorse ~0 ~1 ~0 {Type:3,Tame:1,SaddleItem:{id:329}}<br/>
+生成一个超能僵尸：它有200点生命，以及15点攻击伤害。<br/>
+/summon Zombie ~0 ~1 ~0 {Attributes:[{Name:generic.maxHealth,Base:200},{Name:generic.attackDamage,Base:15}]}
+</b></p>
+
+
