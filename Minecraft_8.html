@@ -83,5 +83,39 @@
 生成一个超能僵尸：它有200点生命，以及15点攻击伤害。<br/>
 /summon Zombie ~0 ~1 ~0 {Attributes:[{Name:generic.maxHealth,Base:200},{Name:generic.attackDamage,Base:15}]}
 </b></p>
-
-
+<hr/>
+<h3>用/summon指令制作烟花</h3>
+<p>你可以用/summon指令来制作烟花：</p>
+<p><b>/summon FireworksRocketEntity ~ ~5 ~ {LifeTime:20,FireworksItem:{id:401,Count:1,tag:{Fireworks:{Explosions:[{Type:1,Flicker:1,Trail:1,Colors:[2516601],FadeColors:[3932152]}]}}}}</b></p>
+<p>除了实体名称和xyz坐标外，这个指令中还需要用到几个数据标签：</p>
+<ul>
+  <li>LifeTime：它代表烟花火箭飞行的时间（秒）</li>
+  <li>FireworksItem：“id:401,Count:1”不用改动，但是，其中还有一个标签，来定义这个烟花：
+  <ul>
+    <li>Type：代表烟火的形状</li>
+    <li>Flicker（开启：1或关闭：0）：代表烟火是否闪烁。</li>
+    <li>Trail（开启：1或关闭：0）：代表烟火是否有尾迹。</li>
+    <li>Colors：烟火的颜色。（其中可以有多种颜色）</li>
+    <li>diamond trail：烟火的下层颜色。（其中可以有多种颜色）</li>
+  </li>
+</ul>
+<p>不难看出，一个数据标签中（特别是那些一个套一个的）的种种括号错综复杂。而且这还仅仅是烟花中的数据标签，实际上，summon指令中可以使用大量不同的数据标签。你可以使用在线指令生成器来“多快好省”的制造自己的烟花：<a href="http://www.minecraftupdates.com/fireworks">指令生成器</a>，你还可以通过颜色生成器来选择自己的颜色：<a href="http://wyattmarks.com/scripts/colorgenerator">颜色生成器</a></p>
+<hr/>
+<h3 id="tp">/tp指令</h3>
+<p>/tp指令可以把你或其他人及实体瞬间传送到某个地方，这个地方可以是实体，也可以是某个坐标。例如，你可以用指令方块设置出传送点，并在上面放置一个按钮；这样一来，你就可以将自己传送至某个特定位置。</p>
+<p><b>格式</b></p>
+<p>将实体传送到某个玩家或实体</p>
+<h4>/tp [被传送者] &lt目标实体&gt</h4>
+<ul>
+<li>[被传送者]是可选参数，默认是指令发出者。用玩家名或选择器为其赋值</li>
+<li>用传送目标（玩家或实体）为参数&lt目标实体&gt赋值。切记，如果你使用选择器的话，传送目标只能有一个，你可能需要在其中加一个“c=1”（参见<a href="Minecraft_3.html">第三章</a>目标选择器部分）。</li>
+</ul>
+<h4>/tp [被传送者] &lt x y z&gt [&lt y-旋转角&gt &lt x-旋转角&gt]</h4>
+<ul>
+<li>[被传送者]的用法和上面相同</li>
+<li>用传送的位置（xyz）为参数&lt x y z&gt赋值。</li>
+<li>[&lt y-旋转角&gt &lt x-旋转角&gt]是可选参数，其中的两个参数必须一起使用。用水平（沿y轴）旋转的角度为&lt y-旋转角&gt赋值（值为180时玩家面向正北，为90时向正西，0时向正南，-90时向正东）；用垂直（沿x轴）旋转角度为参数&lt x-旋转角&gt赋值（值为90时玩家视角向下，值为-90时玩家视角向上）。</li>
+</ul>
+<p><b>例子<br/>/tp 0 64 0<br/>
+/tp meganfair megorniuspi<br/>
+/tp meganfair ~10 ~ ~10 180 90</b></p>
