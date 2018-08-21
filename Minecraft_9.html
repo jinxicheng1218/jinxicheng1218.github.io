@@ -1,0 +1,115 @@
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width; initial-scale=0.5; maximum-scale=0.5; minimum-scale=0.5; user-scalable=no; target-densityDpi=device-dpi'>
+<a href='Minecraft_translation_index.html'>返回目录</a>
+<h1>《指令方块高级教程》</h1>
+<h3>第九章  玩家指令</h3>
+<p>玩家指令只对玩家起作用，在我的世界中，玩家也是一种实体。所以，上一章介绍的实体指令在玩家身上还可以使用。但是并不是所有玩家指令都对其他实体有效，不是所以实体都叫“player（玩家）”。玩家指令中有许多非常有用的，例如：通过/give指令来给予某个玩家一些物品（包括附魔的武器）。<br/>玩家指令包括：</p>
+<a href="enchant">/enchant</a><br/>
+<a href="give">/give</a><br/>
+<a href="playsound">/playsound</a><br/>
+<a href="spawnpoint">/spawnpoint</a><br/>
+<a href="xp">/xp</a><br/>
+<hr/>
+<h3 id="enchant">/enchant指令</h3>
+<p>/enchant指令可以为玩家手持（所谓手持，就是在玩家物品栏中被选中的物品）的特定物品附魔，但是你只能进行常规附魔，因此像锋利100级的钻石剑这种超级装备，你是无法通过这个指令得到的。如果你希望给任何物品随意附魔，你必须使用/give指令。</p>
+<p><b>格式</b></p>
+<h4>/enchant &lt玩家&gt &lt附魔ID&gt [等级]</h4>
+<ul>
+<li>用被执行指令的玩家或选择器为参数&lt玩家&gt赋值。</li>
+<li>用所附魔咒的ID名称或ID号码为参数&lt附魔ID&gt赋值（附魔ID参见<a href="Appendix_D">附录D</a>）。</li>
+<li>[等级]是可选参数，它代表所附魔法的等级，默认为0。大部分魔咒的上限是5，4，或3等等。虽然在游戏中，魔咒的等级是用罗马数字（例如：III）表示，但是，在指令中，我们还是用阿拉伯数字来表示等级。</li>
+</ul>
+<p><b>例子<br/>
+/enchant meganfair silk_touch<br/>
+/enchant @p 61 3
+</b></p>
+<hr/>
+<h3 id="give">/give指令</h3>
+<p>/give指令，可以给予玩家一些物品或方块。因为你可以为给予的物品添加数据标签，因此你可以用它来给予玩家一些拥有超高等级附魔的物品。</p>
+<p><b>格式</b></p>
+<h4>/give &lt玩家&gt &lt物品&gt [数量] [数据值] [数据标签]
+<ul>
+<li>用被给予物品玩家的名称为参数&lt玩家&gt赋值。</li>
+<li>用给予玩家的物品ID名称或物品ID号为参数&lt物品&gt赋值</li>
+<li>[数量]是可选参数，用给予玩家物品的数量为参数其赋值。默认值为1.</li>
+<li>[数据值]是可选参数，用给予玩家物品的数据值为参数赋值，来说明物品的变种。（例如，你希望得到云杉木板，你需要将物品：木板的数据值变为1。）</li>
+<li>[数据标签]是可选参数，用给予玩家物品的数据标签为参数赋值。</li>
+</ul>
+<p><b>例子<br/>
+/give @a cookie 10 0<br/>
+/give MegorniusPI golden_apple 1 0 {display:{Name:Apple O Life}}<br/>
+/give @p golden_sword 1 0 {ench:[{id:16,lvl 7},{id:20,lvl:5},{id:19,lvl:5}],display:{Name:”Creepa Killa”,Lore:[Burn Creepers and Hurl Them!]}}
+</b></p>
+<hr/>
+<h3 href="playsound">/playsound指令</p>
+<p>/playsound指令可以对玩家发出一种我的世界中的声音。例如，如果你可以在地牢中放置一个指令方块，并让它产生爆炸的粒子效果；然后再设置另一个指令方块，然后让它播放爆炸的音效。你可以在我的世维基上找到那些声音的列表。它的网址是<a href="http://minecraft.gamepedia.com/Sounds.json#Sound_events">http://minecraft.gamepedia.com/Sounds.json#Sound_events</a>有一些声音有多种样式，它们随机播放。例如恶魂有七种叫声，它们公用一个声音名称：mob.ghast.moan</p>
+<p><b>格式</b></p>
+<h4>/playsound &lt声音&gt &lt玩家&gt [x y z] [音量] [音高] [最低音量]</h4>
+<ul>
+<li>用音效的名称为参数&lt声音&gt赋值。</li>
+<li>用可以听到声音的玩家的名称或选择器为参数&lt玩家&gt</li>
+<li>[x y z]这是可选参数，用声源坐标为其赋值，默认为指令发出这的位置。</li>
+<li>[音量]是可选参数，用大于等于0的音量为其赋值，默认值为1。它还将决定这个声音可以传播多远。</li>
+<li>[音高]是可选参数，用声音是音调为其赋值，默认值为1。</li>
+<li>[最低音量]是可选参数,用1~0之间的数字表示玩家可以听到最小声音的大小。</li>
+</ul>
+<p><b>例子<br/>
+/playsound mob.endermen.scream @p<br/>
+/playsound mob.ghast.moan meganfair ~ ~ ~ 1 0.1<br/>
+<br/>
+我的世界中的部分声音及其名称：<br/>
+dig.glass：玻璃破碎声<br/>
+fireworks.largeBlast：大型烟花（配料中有烈焰弹）爆炸声<br/>
+game.hostile.swim.splash：...<br/>
+game.potion.smash：药瓶破碎声<br/>
+mob.cat.meow：猫叫<br/>
+mob.chicken.plop：鸡落地声<br/>
+mob.enderdragon.growl：末影龙咆哮声<br/>
+mob.ghast.scream：恶魂的尖叫声<br/>
+mob.guardian.curse：...<br/>
+mob.horse.donkey.angry：驴生气<br/>
+mob.magmacube.jump：岩浆怪跳动<br/>
+mob.villager.yes：村民交易成功<br/>
+mob.wither.death：凋零死亡声<br/>
+mob.zombie.say：僵尸呻吟<br/>
+mob.zombie.wood：僵尸砸门声<br/>
+note.pling：音符箱：吉他（游戏中未使用）<br/>
+random.burp：吃完食物的声音<br/>
+random.drink：嗑药水声<br/>
+random.eat：吃东西声<br/>
+random.explode：爆炸声<br/>
+random.fizz：嘶嘶声（爆炸物点燃声）<br/>
+records.mellohi：...
+</b></p>
+
+<hr/>
+<h3 id="spawnpoint">/spawnpoint指令</h3>
+<p>/spawnpoint指令可以设置玩家的出生点。</p>
+<p><b>格式</b></p>
+<h4>/spawnpoint [玩家] [x y z]</h4>
+<ul>
+<li>[玩家]是可选参数，这个参数代表被设定出生点的玩家，需要用对应玩家或选择器为其赋值。，默认值为指令发出者（因此在指令方块中不能省略）。</li>
+<li>[x y z]是可选参数，它代表出生点的位置，默认值为指令发出点</li>
+</ul>
+<p><b>例子<br/>/spawnpoint @p ~ ~ ~<br/>
+/spawnpoint MegorniusPI 500 64 -345
+</b></p>
+<hr/>
+<h3 id="xp">/xp指令</h3>
+<p>/xp指令可以给予玩家经验值或经验等级。</p>
+<p><b>格式</b></p>
+<p>给予经验值：</p>
+<h4>/xp &lt数量&gt [玩家]</h4>
+<ul>
+<li>如果参数&lt数量&gt后面没有“L”，那么用玩家得到的经验值数量为参数&lt数量&gt赋值。</li>
+<li>[玩家]是可选参数，代表获得经验值的玩家；用玩家名或选择器为参数赋值，默认值为指令发出者（因此在指令方块中不能省略）</li>
+<ul>
+<p>给予经验等级：</p>
+<h4>/xp &lt数量&gt L [玩家]</h4>
+<ul>
+<li>如果参数&lt数量&gt后面跟着“L”的话，你需要用玩家得到的经验等级为参数&lt数量&gt赋值。</li>
+<ul>
+<p><b>例子<br/>
+/xp 30L @p<br/>
+/xp 300 meganfair
+</b></p>
