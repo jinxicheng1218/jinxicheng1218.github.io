@@ -3,6 +3,10 @@
 <a href='Minecraft_translation_index.html'>返回目录</a>
 <h1>《指令方块高级教程》</h1>
 <h3>第九章  玩家指令</h3>
+<div align="center">
+  <img src="51.png">
+</div>
+
 <p>玩家指令只对玩家起作用，在我的世界中，玩家也是一种实体。所以，上一章介绍的实体指令在玩家身上还可以使用。但是并不是所有玩家指令都对其他实体有效，不是所有实体都叫“player（玩家）”。玩家指令中有许多非常有用的，例如：通过/give指令来给予某个玩家一些物品（包括附魔的武器）。<br/>玩家指令包括：</p>
 <a href="enchant">/enchant</a><br/>
 <a href="give">/give</a><br/>
@@ -12,6 +16,10 @@
 <hr/>
 <h3 id="enchant">/enchant指令</h3>
 <p>/enchant指令可以为玩家手持（所谓手持，就是在玩家物品栏中被选中的物品）的特定物品附魔，但是你只能进行常规附魔，因此像锋利100级的钻石剑这种超级装备，你是无法通过这个指令得到的。如果你希望给任何物品随意附魔，你必须使用/give指令。</p>
+<div align="center">
+  <img src="52.png">
+</div>
+
 <p><b>格式</b></p>
 <h4>/enchant &lt玩家&gt &lt附魔ID&gt [等级]</h4>
 <ul>
@@ -35,6 +43,11 @@
 <li>[数据值]是可选参数，用给予玩家物品的数据值为参数赋值，来说明物品的变种。（例如，你希望得到云杉木板，你需要将物品：木板的数据值变为1。）</li>
 <li>[数据标签]是可选参数，用给予玩家物品的数据标签为参数赋值。</li>
 </ul>
+<div align="center">
+  <img src="53.png">
+  <p style="font-size:5;">你有了/give指令，你就可以得到拥有更高等级附魔的物品。</p>
+</div>
+
 <p><b>例子<br/>
 /give @a cookie 10 0<br/>
 /give MegorniusPI golden_apple 1 0 {display:{Name:Apple O Life}}<br/>
@@ -56,6 +69,11 @@
 <p><b>例子<br/>
 /playsound mob.endermen.scream @p<br/>
 /playsound mob.ghast.moan meganfair ~ ~ ~ 1 0.1<br/>
+<div align="center">
+  <img src="54.png">
+  <p style="font-size:5;">通过/playsound指令，你可以播放好多种声音，甚至是玩家的打嗝声。</p>
+</div>
+
 <br/>
 我的世界中的部分声音及其名称：<br/>
 dig.glass：玻璃破碎声<br/>

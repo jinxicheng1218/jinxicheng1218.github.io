@@ -3,6 +3,10 @@
 <a href='Minecraft_translation_index.html'>返回目录</a>
 <h1>《指令方块高级教程》</h1>
 <h3>第八章  实体指令</h3>
+<div align="center">
+  <img src="45.png">
+</div>
+
 <p>实体指令只能针对实体执行。而所谓实体，就是我的世界中的那些会动的物体，像我家，矿车，箭等（但是，有一些实体指令对于交通工具（例如矿车）、弹射物（例如箭）不起作用），之所以会出现这样的问题，是因为我的世界中不同类型的实体所对应的程序略有不同。每种实体都有不同的能力，因此，它们要比那些静止不动的方块复杂得多。例如狼这种实体，它可以是愤怒的（也就是敌对的）；也可以是被驯化的（友好的），你还可以让两只狼在一起生出小狼。而相比之下，一个方块的特性就要少得多。</p>
 <p>实体指令包括：</p>
 <a href="#effect">/effect</a><br/>
@@ -26,6 +30,11 @@
 </ul>
 <p>如果要移除实体的效果，请输入：</p>
 <h4>/effect &lt目标实体&gt clear</h4>
+<div align="center">
+  <img src="46.png">
+  <p style="font-size:5;">获得失明修改，仍可以看到东西，不过只能看到最近的几格，更远处的东西都变成黑色的了。</p>
+</div>
+
 <p><b>例子<br/>/effect @p fire_resistance 120 2 [hideparticles]<br/>
 /effect @a clear</b></p>
 <hr/>
@@ -37,7 +46,10 @@
 <li>&lt目标实体&gt参数的值只能是非玩家实体，因此要用选择器为其赋值。</li>
 <li>用目标实体的数据标签以及它们的值为参数&lt数据标签&gt赋值。</li>
 </ul>
-<p><b>例子<br/>/entitydata @e[type=Slime] {Motion:[0.0,1.0,0.0],Size:20}</b></p>
+<p><b>例子<div align="center">
+  <img src="47.png">
+</div>
+<br/>/entitydata @e[type=Slime] {Motion:[0.0,1.0,0.0],Size:20}</b></p>
 <hr/>
 <h3 id="kill">/kill指令</h3>
 <p>/kill指令非常简单，也非常实用。它经常被用来移除（杀死）一些实体。这些实体包括：玩家，生物，交通工具，弹射物等。</p>
@@ -50,14 +62,18 @@
 <hr/>
 <h3 id="particle">/particle指令</h3>
 <p>/particle指令可以在一个区域内制造粒子效果。</p>
+<div align="center">
+  <img src="48.png">
+  <p style="font-size:5;">当mobSpell粒子的速度大于等于1时，它们会变为多彩的旋涡</p>
+</div>
 <p><b>格式</b></p>
 <h4>/particle &lt粒子名称&gt &lt x y z&gt &lt xd yd zd&gt &lt速度&gt [数量] [模式]</h4>
 <ul>
 <li>用你希望生成粒子所对应的ID名称为参数&lt粒子名称&gt赋值。</li>
 <li>用粒子生成的位置为参数&lt x y z&gt赋值</li>
 <li>用粒子生成的范围为参数&lt xd yd zd&gt赋值，所谓粒子生成的范围，就是以上一个参数&lt x y z&gt为中心，生成粒子区域的宽度（延x轴），高度（延y轴）和另一方向上的宽度（延z轴）。例如，当你用1 1 1为它赋值，则粒子会在中心点周围1格内生成。</li>
-<li>用粒子运动的速度为参数&lt速度&gt赋值，它的值不能小于0。过快的粒子速度会导致粒子存在的时间非常短，以至于你很难看到它们。所以，让粒子运动得慢一点（速度为0.05左右）比较好。</li>
-<li>[数量]是可选参数，你可以用单位时间内粒子生成的数量为其赋值，大于0（不包括0）。切记不要使用过高的数值，否则你的游戏可能会出现卡顿甚至是崩溃。在我的电脑中，从生成大约一万个粒子时开始出现卡顿。当参数[数量]未设置或是值为0时，它还可以改变某些粒子的颜色。</li>
+<li>用粒子运动的速度为参数&lt速度&gt赋值，它的值不能小于0。过快的粒子速度会导致粒子存在的时间非常短，以至于你很难看到它们。所以，让粒子运动得慢一点（速度为0.05左右）比较好。对于某些粒子效果，不同的速度会让它们产生不同的颜色。</li>
+<li>[数量]是可选参数，你可以用单位时间内粒子生成的数量为其赋值，大于0（不包括0）。切记不要使用过高的数值，否则你的游戏可能会出现卡顿甚至是崩溃。在我的电脑中，从生成大约一万个粒子时开始出现卡顿。</li>
 <li>[模式]是可选参数，它有两个值，分别是“正常”和“强制”。默认值为“正常”：生成的粒子数量将受到玩家在视频设置中设定的粒子量的限制。反之则不会受限。</li>
 </ul>
 <p><b>例子<br/>/particle happyVillager ~2 ~ ~2 1 1 1 .05 1000<br/>
@@ -65,6 +81,9 @@
 
 <hr/>
 <h3 id="summon">/summon指令</h3>
+<div align="center">
+  <img src="49.png">
+</div>
 <p>/summon指令非常有用，你可以通过它来生成我的世界中的任何实体，而且其中一些是你平时无法看到的生物，例如骷髅马。你还可以改变实体的数据标签，例如让一个怪物穿上附魔的盔甲。</p>
 <p><b>格式</b></p>
 <h4>/summon &lt实体名称&gt [x y z] [数据标签]</h4>
@@ -80,6 +99,11 @@
 /summon Villager ~1 ~ ~ {Offers:{Recipes:[{buy: {id:dirt,Count:1},sell:{id:diamond,Count:1},rewardExp:false}]}}<br/>
 生成一个带鞍的僵尸马：<br/>
 /summon EntityHorse ~0 ~1 ~0 {Type:3,Tame:1,SaddleItem:{id:329}}<br/>
+<div align="center">
+  <img src="50.png">
+  <p style="font-size:5;">用/summon指令召唤的僵尸马</p>
+</div>
+
 生成一个超能僵尸：它有200点生命，以及15点攻击伤害。<br/>
 /summon Zombie ~0 ~1 ~0 {Attributes:[{Name:generic.maxHealth,Base:200},{Name:generic.attackDamage,Base:15}]}
 </b></p>

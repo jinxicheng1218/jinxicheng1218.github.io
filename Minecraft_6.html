@@ -3,6 +3,9 @@
 <a href='Minecraft_translation_index.html'>返回目录</a>
 <h1>《指令方块高级教程》</h1>
 <h3>第六章  世界指令</h3>
+<div align="center">
+  <img src="33.png">
+</div>
 <p>世界指令可以改变你的世界。例如，/wather指令可以控制天气，/time指令可以改变时间等。</p>
 <p>世界指令包括：</p>
 <a href="#defaultgamemode">/defaultgamemode</a><br/>
@@ -17,6 +20,10 @@
 <hr/>
 <h3 id="defaultgamemode">/defaultgamemode指令</h3>
 <p>这条指令可以设置服务器中新加入的玩家的游戏模式。你会在多人服务器中用到它。例如，你可以在一个冒险地图中使用这条指令，在游戏开始时，将所有玩家的游戏模式都改为冒险模式，以禁止他们破坏方块。</p>
+<div align="center">
+  <img src="34.png">
+  <p style="font-size:5;">旁观模式</p>
+</div>
 <p><b>格式</b></p>
 <h4>/defaultgamemide &lt 模式&gt</h4>
 <ul><li>用以下参数为&lt模式&gt赋值：</li><ul>
@@ -47,16 +54,29 @@
 </table>
 <p>*这个表格比较简略，如果你想了解全部的游戏规则。请去“我的世界维基”查找。</p>
 <a href="http://minecraft.gamepedia.com/Commands#gamemode">http://minecraft.gamepedia.com/Commands#gamemode</a>
+<div align="center">
+  <img src="35.png">
+  <p style="font-size:5;">通过mobGriefing规则来让爬行者等生物无法破坏方块</p>
+</div>
 <p><b>例子</b></p>
 <p><b>/gamerule mobGriefing false<br/>/gamerule NewGameRule 30<br/>通过第二个例子，你可以知道如何创建一个新的游戏规则。</b></p>
 <hr/>
 <h3 id="seed">/seed指令</h3>
 <p>/seed指令可以告诉你，你所处地图的种子。如果你以文字作为种子，例如“可怕的新世界”，则显示的种子仍是数字：程序会把种子中的文字全部转化为数字。在同一游戏版本中，相同种子创造的世界也是相同的。因此你可以将种子分享给你的朋友（必须是相同版本），这样，他们就可以玩与你一样的地图了。有一些在线生物群系查找器，你可以通过世界的种子来找到对应地图中的一些生物群系。例如，当你需要一些粘液球时，你只需要在查找器中寻找附近的史莱姆出生地（沼泽生物群系）的位置就可以了。查找器地址：<br/><b><a href='http://chunkbase.com/'>chunkbase.com</a></b></p>
+<div align="center">
+  <img src="36.png">
+  <p style="font-size:5;">这个区块中会产生史莱姆，史莱姆可以在任何光照强度下生成，但是高度必须小于40</p>
+</div>
 <p><b>格式</b></p>
 <p>这个指令什么参数都没有，直接输入/seed就可以了。</p>
 <hr/>
 <h3 id="setworldspawn">/setworldspawn指令</h3>
 <p>/setworldspawn指令可以设置世界的出生点，设置出生点后，第一次进入游戏的玩家和未设置出生点的玩家死亡后将在新的出生点复活。你可以通过这个指令来制作一个小游戏或冒险地图：当玩家失败（死亡）后，重生在一个特殊的地方。</p>
+<div align="center">
+  <img src="37.png">
+  <p style="font-size:5;">你可以通过/setworldspawn指令指令设置更适宜生存的出生点</p>
+</div>
+
 <p><b>格式</b></p>
 <h4>/setworldspawn [x y z]</h4>
 <ul><li>[x y z]是可选参数，当你为其赋上坐标后，出生点将被设置在对应坐标，如果你不为其赋值，出生点将被设置在指令发出的地方。</li></ul>
@@ -86,6 +106,11 @@
 <hr/>
 <h3 id="weather">/weather指令</h3>
 <p>你可以使用/weather指令来设置地图的天气（我的世界中有三种天气，分别为：晴天，雨天和雷暴）。当然，天气的效果也取决于你所处的生物群系，当你身处寒带的生物群系，在雨天你将看到天空飘落雪花而不是雨滴；而在沙漠生物群系，你无法看到任何的降水，只有你转移到其他生物群系之后才可以恢复正常。你可以自行控制某种天气维持的时间，当然，你也可以让游戏自动决定。</p>
+<div align="center">
+  <img src="38.png">
+  <p style="font-size:5;">在沙漠生物群系中，不管是什么天气，都无法看到雨点</p>
+</div>
+
 <p><b>格式</b></p>
 <h3>/weather &lt clear|rian|thunder &gt [时长]</h3>
 <ul><li>用clear（晴天），rian（雨天），thunder（雷暴）中的一个为参数&lt clear|rian|thunder &gt赋值。</li><li>[时长]是可选参数，你可以用天气持续的秒数（1至1000000秒）为其赋值，如果你不为其赋值，程序将自动决定其时长。</li></ul>
@@ -95,6 +120,11 @@
 <h3 id="worldborder">/worldborder指令</h3>
 <p>我的世界中有8种/worldborder指令！它们分别用来对世界边界执行不同操作。那么，什么是世界边界呢？下面由我来介绍它。世界边界原是一个在世界的尽头设置的一堵像墙一样的东西（半透明的墙），但是一些地图制作者常用它们来制作一些特殊的地图或是小游戏，例如最近服务器中非常火的《绝地求生》游戏。有时，多人服务器还通过设置边界来限制玩家的活动范围。世界边界的形状是正方形，中心点在坐标0,0处（因为高度无限，因此无法设置y坐标）。你可以设置它的半径（尽管它是正方形的），你可以将半径理解为边界中心到它一条边的距离。你还可以设置它的动态扩张和缩小。（静态的边界是蓝色的，扩张的边界是绿色的，而正在收缩的边界是红色的）</p>
 <br/>
+<div align="center">
+  <img src="39.png">
+  <p style="font-size:5;">如果你无意间创建了一个世界边界，你可以通过将其半径设为30000000（3000万）来将其删除</p>
+</div>
+
 <h3>/worldborder add</h3>
 <p>/worldborder add 指令可以在一段时间内（以秒为单位）逐渐扩大或缩小边界。</p>
 <p><b>格式</b></p>
@@ -143,6 +173,11 @@
 <br/>
 <h3>/worldborder warning distance</h3>
 <p>这条指令可以设置警告区域的大小，当玩家进入警告区域，他的屏幕边缘会泛红。默认警告区的大小为5格。</p>
+<div align="center">
+  <img src="40.png">
+  <p style="font-size:5;">在边界靠近玩家时，玩家收到警告</p>
+</div>
+
 <p><b>格式</b></p>
 <h4>/worldborder warning distance &lt警告区大小&gt</h4>
 <ul><li>用警告区的大小（格数）为参数 &lt警告区大小&gt赋值</li></ul>

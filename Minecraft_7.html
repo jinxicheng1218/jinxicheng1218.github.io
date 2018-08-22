@@ -3,6 +3,10 @@
 <a href='Minecraft_translation_index.html'>返回目录</a>
 <h1>《指令方块高级教程》</h1>
 <h3>第七章  方块指令</h3>
+<div align="center">
+  <img src="41.png">
+</div>
+
 <p>方块指令只对方块起作用，所谓方块，就是那些你在我的世界中最常看到的东西，它们可以被放置，可以被破坏，而且不会像生物那样乱动，像金合欢木，僵尸头颅（饰品）等。</p>
 <p>方块指令包括：</p>
 <a href="#blockdata">/blockdata</a><br/>
@@ -17,6 +21,12 @@
 <ul><li>用你要改变方块的坐标为参数&lt x y z&gt赋值</li></ul>
 <ul><li>用对应方块的数据标签（一个或多个，还记得吗，多个数据标签要用方括号括起来）为参数&lt 数据标签&gt赋值，数据标签必须是一个数据名配一个数据值，如：{Item:spling}。</li></ul>
 <p><b>/blockdata ~ ~ ~1 {Item:sapling,Data:2}</b></p>
+The example command adds a spruce sapling to the flowerpot 1 block away.
+<div align="center">
+  <img src="42.png">
+  <p style="font-size:5;">这个指令执行时，指令方块南边1格处的花盆中会被种上白桦树苗</p>
+</div>
+
 <hr/>
 <h3 id="clone">/clone指令</h3>
 <p>/clone指令可以将一个立方体区域的方块复制到另一处，你可以用/clone指令瞬间把一座房子或是一座城墙复制到你预设好的地方。这简直是建筑党的福音！你必须仔细的算准坐标，否则指令可能会将你的建筑复制到其他的建筑内部或者地底下。因此，你需要了解指令中的三个坐标参数都代表什么。但是在此之前，你需要知道：/clone指令无法改变建筑的方向，而且一次最多复制4069个方块。</p>
@@ -42,6 +52,11 @@
   </li>
   <li>如果你用“filtered”为参数[覆盖模式]赋值，那么就必须用你要复制的方块所对应的ID名称为这个参数赋值。</li>
 </ul>
+<div align="center">
+  <img src="43.png">
+  <p style="font-size:5;">对于大量相似的建筑来说，clone指令是极其有用的。就像图中的几个村民小屋</p>
+</div>
+
 <p><b>例子<br/>/clone -778 64 307 -774 68 310 -778 64 314<br/>
 /clone -778 64 307 -774 68 310 ~2 ~ ~2 filtered normal sandstone
 </b></p>
@@ -67,6 +82,11 @@
   <li>[被替换方块名称]是可选参数，如果你将[原方块处理办法]参数赋值为“replace”，并且想让填充方块只替换填充区域内的某一种方块的话，你需要将这个参数赋值为你希望被替换的那个方块的ID名称。</li>
   <li>[被替换方块数据值]是可选参数，你需要用被替换方块的数据值为这个参数赋值。</li>
 </ul>
+<div align="center">
+  <img src="44.png">
+  <p style="font-size:5;">通过/fill指令，你可以瞬间挖掉一大片区域的方块，并使它们产生掉落物。对了，千万不要在你精心建造的家中使用这个指令...</p>
+</div>
+
 <p><b>例子<br/>/fill -480 69 180 -500 89 200 diamond_ore<br/>
 /fill ~2 ~ ~2 ~12 ~-5 ~12 air 0 destroy
 </b></p>
