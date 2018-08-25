@@ -3,13 +3,22 @@
 <meta name='viewport' content='width=device-width; initial-scale=0.5; maximum-scale=1; minimum-scale=0.5; user-scalable=no; target-densityDpi=device-dpi'>
 <link href='board.css' rel='stylesheet'>
 <a href="index.html">返回主页</a>
-<div class='board' along=center></div>
+<div id="again" style="font-size:0;">再来一局</div>
+<div id="body" style="height:100%;width:100%"><div class='board' along=center></div></div>
 <body>
 <script>
 document.oncontextmenu = function(){return false;}
 
-
-
+var body=document.getElementById("body");
+var again = document.getElementById("again");
+again.addEventListener("click",function(){
+    board.remove();
+    var creatBoard=document.createElement("div");
+    creatBoard.className="board";
+    body.append(creatBoard);
+    again.style.fontSize=0;
+    game();
+})
 var board = document.getElementsByClassName('board')[0];
 var all=[];
 var bombNumber=0;
@@ -51,6 +60,7 @@ function over(win){
           open(object);
         }
     }
+    again.style.fontSize=10;
 //    board.addEventListener("click",function boardClick(e){
 //        board.removeEventListener("click",boardClick);
 //        game();
@@ -118,7 +128,6 @@ function game() {
     board.style.width=15*46+40;
     board.style.height=15*46+40;
 }
-
 game();
 </script>
 </body>
