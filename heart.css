@@ -1,0 +1,51 @@
+body{
+    background:#323232;
+}
+#arrowHead{
+    position:relative;
+    left:-5;
+    top:-10;
+    width:20;
+    height:20;
+    background:#434343;
+    transform:rotate(45deg);
+    -scale(10);
+
+
+}
+#arrow{
+    position:absolute;
+    bottom:20px;
+    right:20px;
+    width:10px;
+    height:200px;
+    background:black;
+    transform:rotate(-20deg);
+
+    animation:arrowFly 1s cubic-bezier(0, 0.66, 1, 1.07);
+}
+.heart{
+    position:absolute;
+    width:0;
+    height:0;
+    background:#ff000000;
+    border-style:solid;
+    border-width:80px 50px;
+    border-color:red;
+    border-radius: 0 0 100px 100px;
+}
+#heart1{
+    left:-21;
+    transform:rotate(135deg);
+}
+#heart2{
+    left:21;
+    transform:rotate(-135deg);
+}
+#heart{
+    position:absolute;
+    
+    top:100px;
+    left:100px;
+    transform:scaley(1);
+}

@@ -1,8 +1,10 @@
 .title{
     position:absolute;
     padding-left:30px;
+    animation:title 0.2s linear
 }
-#title1{  
+#title1{
+    position:relative;
     top:30px;
     left:15px;
     color:rgb(255,170,0);
@@ -10,11 +12,13 @@
     font-size:60;
 }
 #title2{
-    top:80px;
+    position:relative;
     left:140px;
     font-size:30;
 }
 #works{
+    animation:works 0.5s linear;
+    position:relative;
     margin-top:300px;
     text-align:right;
     list-style-type:none;
@@ -32,10 +36,10 @@
     transition:top 0.5s;
 }
 
-#title1:active~.call{
+.title:active~.call{
     position:absolute;
     top:450px;
-    transition:top 0.5s;
+    transition:top 0.5s ;
     
 }
 a{
@@ -47,4 +51,21 @@ a:link{
 }
 a:visited{
     color:black;
+}
+
+@keyframes works{
+    0%{
+        right:-500px;
+    }
+    100%{
+        right:30px;
+    }
+}
+@keyframes title{
+    0%{
+        top:-100px;
+    }
+    100%{
+        top:0px;
+    }
 }

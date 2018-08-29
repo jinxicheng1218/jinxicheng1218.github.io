@@ -1,0 +1,31 @@
+
+li{
+    transform:color:black;
+    width:100%;
+    background:white;
+}
+a{
+    background:#ffffff00;
+    font-size:2pm;
+    text-decoration:none;
+    width:100%;
+}
+a:link{
+    color:black;
+}
+a:visited{
+    color:black;
+}
+li:hover{
+    transition:background 0.1s linear;
+    transition:transform 0.1s linear;
+    background:#9E9E9E;
+    transform:translateX(10px);
+}
+li:hover>a{
+    transition:color 0.1s linear;
+    color:white;
+}
+a:hover{
+    color:blue;
+}
