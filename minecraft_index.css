@@ -1,4 +1,6 @@
-
+body{
+    background:white;
+}
 li{
     transform:color:black;
     width:100%;
@@ -24,7 +26,7 @@ li:hover{
 }
 li:hover>a{
     transition:color 0.1s linear;
-    color:white;
+    color:#ffffff;
 }
 a:hover{
     color:blue;
