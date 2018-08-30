@@ -1,51 +1,115 @@
 body{
     background:#323232;
 }
-#arrowHead{
-    position:relative;
-    left:-5;
-    top:-10;
-    width:20;
-    height:20;
-    background:#434343;
-    transform:rotate(45deg);
-    -scale(10);
-
-
-}
-#arrow{
-    position:absolute;
-    bottom:20px;
-    right:20px;
-    width:10px;
-    height:200px;
-    background:black;
-    transform:rotate(-20deg);
-
-    animation:arrowFly 1s cubic-bezier(0, 0.66, 1, 1.07);
-}
-.heart{
-    position:absolute;
-    width:0;
-    height:0;
-    background:#ff000000;
-    border-style:solid;
-    border-width:80px 50px;
-    border-color:red;
-    border-radius: 0 0 100px 100px;
-}
-#heart1{
-    left:-21;
-    transform:rotate(135deg);
-}
-#heart2{
-    left:21;
-    transform:rotate(-135deg);
-}
 #heart{
     position:absolute;
-    
-    top:100px;
+    top:300px;
     left:100px;
-    transform:scaley(1);
+    #animation:heartDown 1s cubic-bezier(0.7, 0.01, 1, 1);
+    #animation:y 5s cubic-bezier(0, 0.6, 1, 1) ;
+    animation-name:heartDown1,y,heartmove1,y,heartmove2,y1,y2,loveHeart;
+    animation-duration:1s,0.15s,0.6s,0.1s,0.5s,0.2s,0.2s,10s;
+    animation-delay:0s,1s,1.3s,2.5s,2.7s,4s,4.5s,6s;
+    animation-timing-function:cubic-bezier(0.7, 0.01, 1, 1),cubic-bezier(0, 0.6, 1, 1),cubic-bezier(0, 0, 0, 1),cubic-bezier(0, 0.6, 1, 1),cubic-bezier(0, 0.6, 1, 1),cubic-bezier(0, 0, 0, 1),cubic-bezier(0, 0, 0, 1),linear;
+    animation-iteration-count:1,2,2,2,2,2;
+    animation-direction:normal,alternate,alternate,alternate,alternate,alternate,alternate,normal;
+    animation-fill-node:forwards;
+}
+#heart_a{
+    color:red;
+    font-size:200px;
+}
+.text{
+    width:100px;
+    height:0;
+    position:relative;
+    font-size:1px;
+    top:-140px;
+    left:20px;
+    color:transparent;
+    animation:loveText 10s linear 5s;
+}
+@keyframes heartDown1{
+    0%{
+        top:-50px;
+        transform:scaley(1);
+    }
+    100%{
+        top:300px;
+        transform:scaley(1);
+    }
+    
+}
+@keyframes y{
+    0%{
+        top:300px;
+        transform:scaley(1);
+    }
+    100%{
+        top:350px;
+        transform:scaley(0.8);
+    }
+}
+@keyframes heartmove1{
+    0%{
+        top:300px;
+        transform:scaley(1);
+    }
+    100%{
+        top:200px;
+        transform:scaley(1);
+    }
+}
+@keyframes y1{
+    0%{
+        top:300px;
+        transform:scaley(1);
+    }
+    100%{
+        top:320px;
+        transform:scaley(0.9);
+    }
+}
+@keyframes heartmove2{
+    0%{
+        top:300px;
+        transform:scaley(1);
+    }
+    100%{
+        top:270px;
+        transform:scaley(1);
+    }
+}
+@keyframes y2{
+    0%{
+        top:300px;
+        transform:scaley(1);
+    }
+    100%{
+        top:310px;
+        transform:scaley(0.95);
+    }
+}
+@keyframes loveHeart{
+    0%{
+        transform:scale(1);
+
+    }
+    100%{
+        top:200px;
+        left:200px;
+        transform:scale(5);
+    }
+}
+@keyframes loveText{
+    0%{
+        width:100px;
+        height:0;
+        color:#ff000000;
+    }
+    100%{
+        width:100px;
+        height:50px;
+        color:black;
+    }
 }
