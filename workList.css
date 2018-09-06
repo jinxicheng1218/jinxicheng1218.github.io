@@ -1,12 +1,18 @@
 .work{
-    position:absolute;
-    top:180px;
-    left:30p;
+    #position:absolute;
+    #top:180px;
+    #left:30p;
     font-size:20;
 }
-#title2{
-    position:absolute;
-    left:100px;
+.title2{
+    #position:absolute;
+    #left:100px;
     font-size:40;
 
+}
+a:link{
+    color:black;
+}
+a:visited{
+    color:black;
 }
