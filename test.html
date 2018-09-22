@@ -50,7 +50,7 @@
 //        video.src = CompatibleURL.createObjectURL(stream);
 //        video.play();//播放视频
 //    }
-    getUserMediaToPhoto({video:{width:1000,height:800}},function(stream){video.src=window.URL.createObjectURL(stream);});
+    getUserMediaToPhoto({video:{width:1000,height:800}},function(stream){video.src=window.webkitURL.createObjectURL(stream);});
 
 //    capture.addEventListener('click',function() {
         // 将video画面描绘在canvas画布上
