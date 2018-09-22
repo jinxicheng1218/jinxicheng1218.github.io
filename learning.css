@@ -46,3 +46,6 @@ div {
     border-width:120px;
     box-shadow:0px 90px 0px #F44336;
 }
+table:active td{
+    border-width:0px;
+}

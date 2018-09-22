@@ -1,5 +1,7 @@
 <center><h1>你好</h1>
 <h2>世界</h2></center>
+<iframe src="https://www.17coding.net",style="height:500px;width:200px;"></iframe>
+
 <p> </p>
 我是熊孩子
 <hr/>
@@ -32,4 +34,26 @@
 <p><img src="picture.jpg"/></p><p>哈哈哈哈哈&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;哈哈哈哈哈哈哈哈哈哈<p>哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</p>aaaaa</p>
 &lt;
 
+<video id="video" autoplay style="width:480px;height:320px"></video>
+<button id="xxx">xxx</button>
+<canvas id="canvas" width="1000" height="800"></canvas>
+<script>  
+    var video = document.getElementById('video');
+    function getUserMediaToPhoto(constraints,success) {
+         navigator.mediaDevices.getUserMedia(constraints).then(success);
+    }
+    //成功回调函数
+//    function success(stream){
+        //兼容webkit核心浏览器
+//        var CompatibleURL = window.URL// || window.webkitURL;
+        //将视频流转化为video的源
+//        video.src = CompatibleURL.createObjectURL(stream);
+//        video.play();//播放视频
+//    }
+    getUserMediaToPhoto({video:{width:1000,height:800}},function(stream){video.src=window.URL.createObjectURL(stream);});
 
+//    capture.addEventListener('click',function() {
+        // 将video画面描绘在canvas画布上
+//        context.drawImage(video,0,0,480,320);
+//    })
+ </script>
