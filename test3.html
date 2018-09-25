@@ -13,7 +13,6 @@
  
     <script type="text/javascript">
         var video = document.querySelector('video');
-        var audio, audioType;
  
         var canvas1 = document.getElementById('canvas1');
         var context1 = canvas1.getContext('2d');
@@ -64,7 +63,14 @@
             //video.play();
  
             // 音频
-            // 将视频帧绘制到Canvas对象上,Canvas每60ms切换帧，形成肉眼视频效果
+            }
+        }
+        function errorFunc(e) {
+            alert('Error！'+e);
+        }
+ 
+         
+        // 将视频帧绘制到Canvas对象上,Canvas每60ms切换帧，形成肉眼视频效果
         function drawVideoAtCanvas(video,context) {
             window.setInterval(function () {
                 context.drawImage(video, 0, 0,90,120);
