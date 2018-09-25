@@ -1,7 +1,7 @@
 <center><h1>你好</h1>
 <h2>世界</h2></center>
-<iframe src="https://www.17coding.net",style="height:500px;width:200px;"></iframe>
-
+<!iframe src="https://www.17coding.net",style="height:500px;width:200px;"></iframe>
+<div id="a">xxx</div>
 <p> </p>
 我是熊孩子
 <hr/>
@@ -57,4 +57,17 @@
         // 将video画面描绘在canvas画布上
 //        context.drawImage(video,0,0,480,320);
 //    })
- </script>
+    //document.body.addEventListener("click",function(e){a.innerText=screenX+screenY;})
+    //var time;
+    //function timer () {
+      //time = setInterval(timer(),10);
+      //a.innerText="aaa";
+      //var x =event;
+      //a.innerText=(x.pageX +","+x.pageY);
+    //}
+function g(event) {     //event是一个声明了全局变量的一个对象
+  var e = event || window.event;    //Firefox下是没有event这个对象的！！
+  return {'y':e.screenY,'x':e.screenX}  
+  }
+document.onmousemove=function(){a.innerText=(g(event).x)+","+(g(event).y);}
+</script>
