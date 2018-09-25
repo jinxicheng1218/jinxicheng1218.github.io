@@ -63,6 +63,11 @@
             //video.play();
  
             // 音频
+            audio = new Audio();
+            audioType = getAudioType(audio);
+            if (audioType) {
+                audio.src = 'polaroid.' + audioType;
+                audio.play();
             }
         }
         function errorFunc(e) {
