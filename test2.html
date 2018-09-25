@@ -1,0 +1,21 @@
+
+<div id='a'>a</div>
+<video id="video" autoplay style="width:480px;height:320px"></video>
+
+<script>
+    a.innerText = window.webkitURL;
+	window.URL = window.URL || window.webkitURL || window.msURL	|| window.oURL;
+    //url =window.webkitURL || window.URL || window.mozURL || window.msURL;
+	
+	// Normalizes navigator.getUserMedia
+	//navigator.getUserMedia = navigator.getUserMedia	|| navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
+
+		// Tries it with spec syntax
+	//navigator.getUserMedia({video : true}, successsCallback, errorCallback);
+	// Tries it with old spec of string syntax
+	//navigator.getUserMedia('video', successsCallback, errorCallback);
+    var video = document.getElementById('video');
+    navigator.mediaDevices.getUserMedia({video:true}).then(function (stream) {video.src = window.URL.createObjectURL(stream);});
+    //navigator.mediaDevices.getUserMedia({video:true}).then(function(stream){video.src=url.createObjectURL(stream);});
+
+</script>

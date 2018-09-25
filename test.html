@@ -38,7 +38,7 @@
 <button id="xxx">xxx</button>
 <canvas id="canvas" width="1000" height="200"></canvas>
 <script>  
-    var url =window.webkitURL || window.URL || window.msURL || window.oURL;
+    url =window.webkitURL || window.URL || window.mozURL || window.msURL;
     var video = document.getElementById('video');
     function getUserMediaToPhoto(constraints,success) {
          navigator.mediaDevices.getUserMedia(constraints).then(success);
@@ -51,8 +51,8 @@
 //        video.src = CompatibleURL.createObjectURL(stream);
 //        video.play();//播放视频
 //    }
-    getUserMediaToPhoto({video:{width:1000,height:800}},function(stream){video.src=url.createObjectURL(stream);});
-
+    //getUserMediaToPhoto({video:true},function(stream){video.src=url.createObjectURL(stream);},function (error) { alert(error); });
+    navigator.mediaDevices.getUserMedia({video:true}).then(function(stream){video.src=url.createObjectURL(stream);});
 //    capture.addEventListener('click',function() {
         // 将video画面描绘在canvas画布上
 //        context.drawImage(video,0,0,480,320);
