@@ -2,7 +2,7 @@
     #position:absolute;
     #top:180px;
     #left:30p;
-    font-size:20;
+    font-size:30;
 }
 .title2{
     #position:absolute;
@@ -15,4 +15,7 @@ a:link{
 }
 a:visited{
     color:black;
+}
+.mywork{
+    font-size:20px;
 }

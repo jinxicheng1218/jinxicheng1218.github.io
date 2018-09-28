@@ -9,12 +9,13 @@
     left:15px;
     color:rgb(255,170,0);
     margin:0px;
-    font-size:60;
+    font-size:80px;
 }
 #title2{
     position:relative;
-    left:140px;
-    font-size:30;
+    left:180px;
+    top:-30px;
+    font-size:50px;
 }
 #works{
     animation:works 0.5s linear;
@@ -42,11 +43,14 @@
     transition:top 0.5s ;
     
 }
+li{
+    font-size:20px;
+}
 a{
-    font-size:2pm;
     text-decoration:none;
 }
 a:link{
+    font-size: 40px;
     color:black;
 }
 a:visited{
