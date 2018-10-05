@@ -19,3 +19,7 @@ a:visited{
 .mywork{
     font-size:20px;
 }
+.time{
+   position:absolute;
+   bottom:20px;
+}
