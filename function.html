@@ -1,0 +1,92 @@
+<link href='function.css' rel='stylesheet'>
+<div class='coordinates_input'>
+  <table>
+    <tr>
+      <td><input placeholder='x1' type='text' class='number_input' id='x1'></input></td>
+      <td><input placeholder='x2' type='text' class='number_input' id='x2'></input></td>
+      <td><input placeholder='x3' type='text' class='number_input' id='x3'></input></td>
+    </tr>
+    <tr>
+      <td><input placeholder='y1' type='text' class='number_input' id='y1'></input></td>
+      <td><input placeholder='y2' type='text' class='number_input' id='y2'></input></td>
+      <td><input placeholder='y3' type='text' class='number_input' id='y3'></input></td>
+    </tr>
+  </table>
+</div>
+<div id='doIt' class='button'>運算</div>
+<div id='end'></div>
+<script>
+var doItButton = document.getElementById('doIt');
+var x1;
+var x2;
+var x3;
+var y1;
+var y2;
+var y3;
+//var a;
+var b;
+var c;
+function xy_coordinates () {
+  x1 = document.getElementById('x1');//.value||0;
+  x2 = document.getElementById('x2');//.value||0;
+  x3 = document.getElementById('x3');//.value||0;
+  y1 = document.getElementById('y1');//.value||0;
+  y2 = document.getElementById('y2');//.value||0;
+  y3 = document.getElementById('y3');//.value||0;
+  //alert('x1='+x1+';y1='+y1+";x2="+x2+"y2="+y2);
+}
+function y1Number (a,x1,x2,y2,x3,y3) {
+  return(a*(Math.pow(x1,2)-Math.pow(x3,2))+((x1-x3)*(y2-(a*(Math.pow(x2,2)-Math.pow(x3,2)))-y3)/(x2-x3))+y3);
+}
+
+function a_figure (f,m) {
+  var a = 0;
+  // this.y3;
+  //alert(x1+""+x2+x3+";"+y1+y2+y3);
+  if (m >= 0.01) {
+      var j = 100000000;
+      var a_;
+      for (var a1=f-m;a1<=f+m;a1=a1+0.1*m) {
+          var y1_=y1Number(a1,x1,x2,y2,x3,y3).toFixed(3);
+          if (Math.abs(y1_-y1)<j) {
+              j=Math.abs(y1_-y1);
+              a_=a1;
+          }else if (y1==y1_) {
+              return(a1);
+              //j=0;
+              //a_=a1;
+          }
+          
+      }
+      a=a_figure(a_,m*0.1);
+  }else{
+      a=f;
+      a=Number(a.toFixed(3));
+  }
+  return(a);
+}
+
+doItButton.onclick = function () {
+  xy_coordinates();
+  x1 =Number(x1.value);// this.x1;
+  x2 =Number(x2.value);// this.x2;
+  x3 =Number(x3.value);// this.x3;
+  y1 =Number(y1.value);// this.y1;
+  y2 =Number(y2.value);// this.y2;
+  y3 =Number(y3.value);
+  a = a_figure(-50,100);
+  b = (y2-(a*(Math.pow(x2,2)-Math.pow(x3,2)))-y3)/(x2-x3);
+  c = y3-(a*Math.pow(x3,2))-(b*x3);
+  alert("y="+(a+"x²"+((b<0)?(b+"x"):((b==0)?"":("+"+b+"x")))).replace('1','')+((c<0)?(c):((c=0)?"":"+"+c)));
+};
+
+xy_coordinates();
+
+x1.value=1;
+x2.value=2;
+x3.value=3;
+y1.value=1;
+y2.value=2;
+y3.value=1;
+
+</script>

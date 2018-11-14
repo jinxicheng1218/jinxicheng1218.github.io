@@ -1,0 +1,15 @@
+.number_input {
+    width:50px;
+    background:white;
+}
+.button{
+    width:50px;
+    height:30px;
+    background:#a5a5a5;
+    text-align: center;
+    color:#e1e1e1;
+}
+.button:active{
+    background:#bfbfbf;
+    color:#ffffff;
+}
