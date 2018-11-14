@@ -77,7 +77,8 @@ doItButton.onclick = function () {
   a = a_figure(-50,100);
   b = (y2-(a*(Math.pow(x2,2)-Math.pow(x3,2)))-y3)/(x2-x3);
   c = y3-(a*Math.pow(x3,2))-(b*x3);
-  alert("y="+(a+"x²"+((b<0)?(b+"x"):((b==0)?"":("+"+b+"x")))).replace('1','')+((c<0)?(c):((c=0)?"":"+"+c)));
+  alert(b);
+  alert("y="+(a+"x²"+((b<0)?(b+"x"):((b==0)?"":("+"+b+"x")))).replace('','')+((c<0)?c:("+"+c)));
 };
 
 xy_coordinates();
