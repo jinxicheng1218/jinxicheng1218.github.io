@@ -14,9 +14,16 @@
   </table>
 </div>
 <div id='doIt' class='button'>運算</div>
+<b>解析式</b>
+<div>一般式:<div id='ybs'></div></div><br/>
+<div>頂點式:<div id='dds'></div></div><br/>
+<div>交點式:<div id='jds'></div></div><br/>
 <div id='end'></div>
 <script>
 var doItButton = document.getElementById('doIt');
+var show_ybs = document.getElementById('ybs');
+var show_dds = document.getElementById('dds');
+var show_jds = document.getElementById('jds');
 var x1;
 var x2;
 var x3;
@@ -47,7 +54,7 @@ function a_figure (f,m) {
       var j = 100000000;
       var a_;
       for (var a1=f-m;a1<=f+m;a1=a1+0.1*m) {
-          var y1_=y1Number(a1,x1,x2,y2,x3,y3).toFixed(3);
+          var y1_=y1Number(a1,x1,x2,y2,x3,y3).toFixed(5);
           if (Math.abs(y1_-y1)<j) {
               j=Math.abs(y1_-y1);
               a_=a1;
@@ -61,7 +68,7 @@ function a_figure (f,m) {
       a=a_figure(a_,m*0.1);
   }else{
       a=f;
-      a=Number(a.toFixed(3));
+      a=Number(a.toFixed(4));
   }
   return(a);
 }
@@ -75,10 +82,24 @@ doItButton.onclick = function () {
   y2 =Number(y2.value);// this.y2;
   y3 =Number(y3.value);
   a = a_figure(-50,100);
-  b = (y2-(a*(Math.pow(x2,2)-Math.pow(x3,2)))-y3)/(x2-x3);
-  c = y3-(a*Math.pow(x3,2))-(b*x3);
+  b = Number(((y2-(a*(Math.pow(x2,2)-Math.pow(x3,2)))-y3)/(x2-x3)).toFixed(3));
+  c = (x1==0)?y1:((x2==0)?y2:((x3==0)?y3:(Number(y3-(a*Math.pow(x3,2))-(b*x3).toFixed(4)))));
+  h = -(b/(2*a));
+  k = ((4*a*c)-Math.pow(b,2))/(4*a);
+  var dert = Math.pow(b,2)-(4*a*c);
+  if (dert >= 0) {
+    x_1=(-(b)-Math.sqrt(dert))/(2*a);
+    x_2=(-(b)+Math.sqrt(dert))/(2*a);
+  }
+ 
   //alert(b);
-  alert("y="+((a=1)?"":(a=-1)?"-":a)+"x²"+((b<0)?(b+"x"):((b==0)?"":("+"+b+"x")))+((c<0)?c:("+"+c)));
+  var ybs = "y="+((a==1)?(""):((a==-1)?("-"):a))+"x²"+((b<0)?(b+"x"):((b==0)?"":("+"+b+"x")))+((c<0)?c:((c==0)?'':("+"+c)));
+  var dds = "y="+((a==1)?(""):((a==-1)?("-"):a))+'(x'+((h>0)?(h):((h==0)?'':("+"+h)))+')²'+((k<0)?k:((k==0)?'':("+"+k)))
+  var jds = "y="+((a==1)?(""):((a==-1)?("-"):a))+'(x'+((x_1<0)?(x_1):((x_1==0)?'':("+"+x_1)))+')'+'(x'+((x_2<0)?(x_2):((x_2==0)?'':("+"+x_2)))+')'
+   //alert(ybs);
+  show_ybs.innerText=ybs;
+  show_dds.innerText=dds;
+  show_jds.innerText=jds;
 };
 
 xy_coordinates();
@@ -86,8 +107,8 @@ xy_coordinates();
 x1.value=1;
 x2.value=2;
 x3.value=3;
-y1.value=1;
-y2.value=2;
-y3.value=1;
+y1.value=0;
+y2.value=1;
+y3.value=0;
 
 </script>
