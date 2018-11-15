@@ -3,7 +3,7 @@
     background:white;
 }
 .button{
-    width:50px;
+    width:80px;
     height:30px;
     background:#a5a5a5;
     text-align: center;
@@ -12,4 +12,7 @@
 .button:active{
     background:#bfbfbf;
     color:#ffffff;
+}
+div {
+    font-size:25px;
 }
