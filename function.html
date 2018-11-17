@@ -1,5 +1,6 @@
 <link href='function.css' rel='stylesheet'>
 <div class='coordinates_input'>
+<div>坐標</div>
   <table>
     <tr>
       <td><input placeholder='x1' type='text' class='number_input' id='x1'></input></td>
@@ -18,12 +19,17 @@
 <div>一般式:<div id='ybs'></div></div><br/>
 <div>頂點式:<div id='dds'></div></div><br/>
 <div>交點式:<div id='jds'></div></div><br/>
+<div>y=<input class='number_input' id='fA' type='text' placeholder='a'></input>x²+<input class='number_input' id='fB' type='text' placeholder='b'></input>x+<input class='number_input' id='fC' type='text' placeholder='c'></input>與拋物線交點坐標：<div id='point'></div></div>
 <div id='end'></div>
 <script>
 var doItButton = document.getElementById('doIt');
 var show_ybs = document.getElementById('ybs');
 var show_dds = document.getElementById('dds');
 var show_jds = document.getElementById('jds');
+var point = document.getElementById('point');
+var fa;//= document.getElementById('fA').value || 0;
+var fb;//= document.getElementById('fB').value || 0;
+var fc;//= document.getElementById('fC').value || 0;
 var x1;
 var x2;
 var x3;
@@ -40,6 +46,9 @@ function xy_coordinates () {
   y1 = document.getElementById('y1');//.value||0;
   y2 = document.getElementById('y2');//.value||0;
   y3 = document.getElementById('y3');//.value||0;
+  fa = document.getElementById('fA').value || 0;
+  fb = document.getElementById('fB').value || 0;
+  fc = document.getElementById('fC').value || 0;
   //alert('x1='+x1+';y1='+y1+";x2="+x2+"y2="+y2);
 }
 function y1Number (a,x1,x2,y2,x3,y3) {
@@ -73,6 +82,27 @@ function a_figure (f,m) {
   return(a);
 }
 
+function fy (a,b,c,x) {
+  return(a*Math.pow(x,2)+b*x+c);
+}
+
+function j_point (a,b,c) {
+  var dert = Math.pow(b,2)-(4*a*c);
+  if (dert<0){
+    return('無交點');
+  }else if (dert==0){
+    var x = (-(b)-Math.sqrt(dert))/(2*a);
+    var y = fy(a,b,c,x);
+    return{x1:x,y1:y,x2:x,y2:y};
+  }else{
+    var xa = (-(b)+Math.sqrt(dert))/(2*a);
+    var ya = fy(a,b,c,xa);
+    var xb = (-(b)-Math.sqrt(dert))/(2*a);
+    var yb = fy(a,b,c,xb);
+    return{x1:xa,y1:ya,x2:xb,y2:yb};
+  }
+}
+
 doItButton.onclick = function () {
   xy_coordinates();
   x1 =Number(x1.value);// this.x1;
@@ -90,16 +120,29 @@ doItButton.onclick = function () {
   if (dert >= 0) {
     x_1=(-(b)-Math.sqrt(dert))/(2*a);
     x_2=(-(b)+Math.sqrt(dert))/(2*a);
+    var jds = "y="+((a==1)?(""):((a==-1)?("-"):a))+'(x'+((x_1<0)?('+'+-x_1):((x_1==0)?'':("-"+x_1)))+')'+'(x'+((x_2<0)?('+'+-x_2):((x_2==0)?'':("-"+x_2)))+')'
+    show_jds.innerText=jds;
   }
  
   //alert(b);
   var ybs = "y="+((a==1)?(""):((a==-1)?("-"):a))+"x²"+((b<0)?(b+"x"):((b==0)?"":("+"+b+"x")))+((c<0)?c:((c==0)?'':("+"+c)));
-  var dds = "y="+((a==1)?(""):((a==-1)?("-"):a))+'(x'+((h>0)?(h):((h==0)?'':("+"+h)))+')²'+((k<0)?k:((k==0)?'':("+"+k)))
-  var jds = "y="+((a==1)?(""):((a==-1)?("-"):a))+'(x'+((x_1<0)?(x_1):((x_1==0)?'':("+"+x_1)))+')'+'(x'+((x_2<0)?(x_2):((x_2==0)?'':("+"+x_2)))+')'
+  var dds = "y="+((a==1)?(""):((a==-1)?("-"):a))+'(x'+((h>0)?('-'+h):((h==0)?'':("+"+-h)))+')²'+((k<0)?k:((k==0)?'':("+"+k)))
    //alert(ybs);
   show_ybs.innerText=ybs;
   show_dds.innerText=dds;
-  show_jds.innerText=jds;
+  
+  var jp = j_point(a-fa,b-fb,c-fc);
+  //alert(jp.zz);
+  if (jp!='無交點'){
+    if (jp.x1==jp.x2){
+      point.innerText='('+jp.x1+','+fy(a,b,c,jp.x1)+')';
+
+    }else{
+      point.innerText='('+jp.x1+','+fy(a,b,c,jp.x1)+')'+'，'+'('+jp.x2+','+fy(a,b,c,jp.x2)+')';
+    }
+  }else{
+    point.innerText=jp;
+  }
 };
 
 xy_coordinates();
