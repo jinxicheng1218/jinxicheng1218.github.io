@@ -1,8 +1,9 @@
 <a href='index.html' style='font-size:30px;'>返回主页</a>
 <h1><a href='Minescrafters.pdf'>《指令方块高级教程——中文版》</a></h1>
 <link href='minecraft_index.css' rel='stylesheet'>
-
+<title>指令方块高级教程—中文版</title>
 <hr/>
+<iframe id='window' src="Minecraft_1_0.html" style="width:100%;height:80%;"></iframe>
 <h2>第零稿</h2>
 <ol stle="listStyleType:none;" class='list'>
   <li><a href='Minecraft_introduction_0.html'>前言</a></li>
@@ -21,10 +22,10 @@
   <li><a href='Minecraft_3_1.html'>第三章</a></li>
 </ol>
 <script>
-  
+  var w = document.getElementById('window');
   function openNewWindow (e) {
     var windowURL = e.getAttribute('href');
-    window.open(windowURL);
+    w.src=windowURL;
     return false;
   }
   var list = document.getElementsByClassName('list')[0];
