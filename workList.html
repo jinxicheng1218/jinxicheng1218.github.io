@@ -4,17 +4,24 @@
 <title>作品集</title>
 <a href='index.html' style='font-size:30px;'>返回主页</a>
 <h2>话说，如果用微信打开本页，则无法下载作品；若需要下载，请点击屏幕右上角的三个点打开菜单，然后点击“在浏览器打开”即可。</h2>
-
+<script>
+  document.oncontextmenu = function(){return false;};
+  function openNewWindow (e) {
+    var WindowURL = e.getAttribute('href');
+    window.open(WindowURL);
+    return false;
+  }
+</script>
 <hr/>
 
 <div class="title2">作品</div>
 <ul class="work">
-<li><a href="Minesweeper.html" id="Minesweeper" class='mywork'><b>扫雷</b></li>
-<li><a href="2function.apk" id="2function" class='mywork'>二次函数运算-需下载</a></li>
-<li><a href="eng.apk" id="eng" class='mywork'>背单词-需下载</a></li>
-<li><a href="szxc.apk" id="szxc" class='mywork'>十字相乘-需下载</a></li>
-<li><a href='sbq.apk' id='sbq' class='mywork'>示波器-需下载</a></li>
-<li><a href='function.html' id='function' class='myworks'>二次函数解析式计算器-网页版</a></li>
+<li><a href="Minesweeper.html" id="Minesweeper" class='mywork' onclick="openNewWindow (this);return false;"><b>扫雷</b></li>
+<li><a href="2function.apk" id="2function" class='mywork' onclick="openNewWindow (this);return false;">二次函数运算-需下载</a></li>
+<li><a href="eng.apk" id="eng" class='mywork' onclick="openNewWindow (this);return false;">背单词-需下载</a></li>
+<li><a href="szxc.apk" id="szxc" class='mywork' onclick="openNewWindow (this);return false;">十字相乘-需下载</a></li>
+<li><a href='sbq.apk' id='sbq' class='mywork' onclick="openNewWindow (this);return false;">示波器-需下载</a></li>
+<li><a href='function.html' id='function' class='myworks' onclick="openNewWindow (this);return false;">二次函数解析式计算器-网页版</a></li>
 </ul>
 <script>document.oncontextmenu = function(){return false;}</script>
-<div class='time'>2018年11月15日01:39:48</div>
+<div class='time'>2018年11月20日01:18:14</div>
