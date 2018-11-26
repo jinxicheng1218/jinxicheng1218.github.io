@@ -61,13 +61,13 @@ var y3;
 //var a;
 var b;
 var c;
-function xy_coordinates () {
-  x1 = document.getElementById('x1');//.value||0;
-  x2 = document.getElementById('x2');//.value||0;
-  x3 = document.getElementById('x3');//.value||0;
-  y1 = document.getElementById('y1');//.value||0;
-  y2 = document.getElementById('y2');//.value||0;
-  y3 = document.getElementById('y3');//.value||0;
+function parameter () {
+  x1 = Number(document.getElementById('x1').value) || 0;
+  x2 = Number(document.getElementById('x2').value) || 0;
+  x3 = Number(document.getElementById('x3').value) || 0;
+  y1 = Number(document.getElementById('y1').value) || 0;
+  y2 = Number(document.getElementById('y2').value) || 0;
+  y3 = Number(document.getElementById('y3').value) || 0;
   fa = Number(document.getElementById('fA').value) || 0;
   fb = Number(document.getElementById('fB').value) || 0;
   fc = Number(document.getElementById('fC').value) || 0;
@@ -216,20 +216,21 @@ button_f_c.onclick = function () {
 
 doItButton.onclick = function () {
   if (button_c_f.checked){
-    xy_coordinates();
-    x1 =Number(x1.value);// this.x1;
-    x2 =Number(x2.value);// this.x2;
-    x3 =Number(x3.value);// this.x3;
-    y1 =Number(y1.value);// this.y1;
-    y2 =Number(y2.value);// this.y2;
-    y3 =Number(y3.value);
+    parameter();
+    //x1 =Number(x1.value);// this.x1;
+    //x2 =Number(x2.value);// this.x2;
+    //x3 =Number(x3.value);// this.x3;
+    //y1 =Number(y1.value);// this.y1;
+    //y2 =Number(y2.value);// this.y2;
+    //y3 =Number(y3.value);
     a = a_figure(-50,100);
     b = Number(((y2-(a*(Math.pow(x2,2)-Math.pow(x3,2)))-y3)/(x2-x3)).toFixed(3));
     c = (x1==0)?y1:((x2==0)?y2:((x3==0)?y3:(Number(y3-(a*Math.pow(x3,2))-(b*x3).toFixed(4)))));
   }else{
-    a=document.getElementById('A').value||1;
-    b=document.getElementById('B').value||0;
-    c=document.getElementById('C').value||0;
+    parameter();
+    a=Number(document.getElementById('A').value||1);
+    b=Number(document.getElementById('B').value||0);
+    c=Number(document.getElementById('C').value||0);
   }
   h = Number((-(b/(2*a))).toFixed(3));
   k = Number((((4*a*c)-Math.pow(b,2))/(4*a)).toFixed(3));
@@ -273,14 +274,14 @@ doItButton.onclick = function () {
 
 };
 
-xy_coordinates();
+//parameter();
 
-x1.value=1;
-x2.value=2;
-x3.value=3;
-y1.value=0;
-y2.value=1;
-y3.value=0;
+document.getElementById('x1').value=1;
+document.getElementById('x2').value=2;
+document.getElementById('x3').value=3;
+document.getElementById('y1').value=0;
+document.getElementById('y2').value=1;
+document.getElementById('y3').value=0;
 //ca.fillStyle='#000000';
 
 document.getElementById('px').value=10;
