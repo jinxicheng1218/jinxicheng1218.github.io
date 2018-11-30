@@ -16,3 +16,30 @@
 div {
     font-size:25px;
 }
+.moveButton{
+    display:none;
+    
+}
+.moveButton #box {
+    position:relative;
+    background:#adadad;
+    width:60px;
+    height:30px;
+    border-style:solid;
+    border-width:0px;
+    border-radius:25px;
+
+}
+.moveButton #button {
+    position:relative;
+    width:25px;
+    height:25px;
+    background:#e0e0e0;
+    border-style:solid;
+    border-width:0px;
+    border-radius:25px;
+    top:2.5px;
+    left:2.5px;
+    /* right:2.5px; */
+    transition:left 0.05s linear;
+}

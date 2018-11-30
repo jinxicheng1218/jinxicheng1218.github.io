@@ -1,7 +1,19 @@
 <link href='function.css' rel='stylesheet'>
+
+<div class='moveButton' id='cf'>
+  <table><tr>
+  <td>a</td>
+  <td>
+    <div id='box'>
+      <div id='button'></div>
+    </div>
+  </td>
+  <td>b</td>
+  </tr></table>
+</div>
+<ht/>
 <input type='Checkbox' id='c_f' checked='true'>坐標求函數</input><br/>
 <input type='Checkbox' id='f_c'>函數求坐標</input>
-
 <br/>
 <hr/>
 <div id='box_c_f'>坐標
@@ -20,7 +32,6 @@
 </div>
 <div id='box_f_c' style='display:none;'>解析式
   <div>y=<input class='number_input' id='A' type='text' placeholder='a'></input>x²+<input class='number_input' id='B' type='text' placeholder='b'></input>x+<input class='number_input' id='C' type='text' placeholder='c'></input></div>
-
 </div>
 <hr/>
 <div id='doIt' class='button'>運算</div>
@@ -31,6 +42,9 @@
 <div>y=<input class='number_input' id='fA' type='text' placeholder='a'></input>x²+<input class='number_input' id='fB' type='text' placeholder='b'></input>x+<input class='number_input' id='fC' type='text' placeholder='c'></input>與拋物線交點坐標：<div id='point'></div></div>
 <div id='end'></div>
 <hr/>
+<div>當x=<input class='number_input' id='x' type='text' placeholder='x'></input>時，y=<div id='x_y' style='display:inline'></div></div>
+<hr/>
+
 <div>一單位長度=<input placeholder='像素' type='text' class='number_input' id='px'></input>px<br/>一格=<input placeholder='單位' type='text' class='number_input' id='unit'></input>單位長度</div>
 
 <canvas id="canvas" width="500" height="500"></canvas>
@@ -45,6 +59,8 @@ var button_f_c = document.getElementById('f_c');
 var box_c_f = document.getElementById('box_c_f');
 var box_f_c = document.getElementById('box_f_c');
 var canvas = document.getElementById('canvas');
+var moveButton1 = document.getElementById('cf');
+var gety = document.getElementById('x_y');
 var ca = canvas.getContext('2d');
 var o = [250,250];
 var unit_length = 10;
@@ -61,6 +77,7 @@ var y3;
 //var a;
 var b;
 var c;
+var valuex;
 function parameter () {
   x1 = Number(document.getElementById('x1').value) || 0;
   x2 = Number(document.getElementById('x2').value) || 0;
@@ -71,6 +88,7 @@ function parameter () {
   fa = Number(document.getElementById('fA').value) || 0;
   fb = Number(document.getElementById('fB').value) || 0;
   fc = Number(document.getElementById('fC').value) || 0;
+  valuex = Number(document.getElementById('x').value) || 0;
   unit_length = document.getElementById('px').value||unit_length;
   unit=document.getElementById('unit').value||unit;
   //alert('x1='+x1+';y1='+y1+";x2="+x2+"y2="+y2);
@@ -145,8 +163,8 @@ function drow_axis (long){
   ca.moveTo(0,y(0));
   ca.lineTo(500,y(0));
   ca.stroke();
-  ca.fillText('y',o[0]+10,10);
-  ca.fillText('x',490,o[1]+10);
+  ca.fillText('y',o[0]-20,10);
+  ca.fillText('x',490,o[1]+20);
   ca.font="6px Arial";
   for (var x_ = o[0]+unit_length*long;x_<500;x_=x_+long*unit_length){
     ca.lineWidth=2;
@@ -214,6 +232,15 @@ button_f_c.onclick = function () {
   box_f_c.style.display ='';
 };
 
+moveButton1.onclick = function () {
+  var button = moveButton1.children[0].children[0].children[0].children[1].children[0].children[0];
+  if (button.style.left == '31.5px'){
+    button.style.left='2.5px'
+  }else{
+    button.style.left='31.5px'
+  }
+}
+
 doItButton.onclick = function () {
   if (button_c_f.checked){
     parameter();
@@ -261,6 +288,7 @@ doItButton.onclick = function () {
   }else{
     point.innerText=jp;
   }
+  gety.innerText=fy(a,b,c,valuex);
   ca.fillStyle='#FFFFFF';
   ca.fillRect(0,0,500,500);
   ca.fillStyle='#000000';
@@ -269,6 +297,10 @@ doItButton.onclick = function () {
   drow_axis(unit);
   drow_function(fa,fb,fc);
   drow_function(a,b,c);
+  ca.beginPath();
+  ca.moveTo(x(valuex),0);
+  ca.lineTo(x(valuex),500);
+  ca.stroke();
   
   //alert(fa+fb+fc);
 
