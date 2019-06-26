@@ -17,6 +17,20 @@
     top:-30px;
     font-size:50px;
 }
+#title3{
+    animation:sizeChage 2s linear;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+    
+    position:relative;
+    top:-100px;
+    left:260px;
+    font-size:35px;
+    color:#FF5722;
+    transform: rotate(30deg);
+    font-weight:600;
+
+}
 #works{
     animation:works 0.5s linear;
     position:relative;
@@ -71,5 +85,19 @@ a:visited{
     }
     100%{
         top:0px;
+    }
+}
+@keyframes sizeChage{
+    0%{
+        font-size:35px;
+        transform: rotate(30deg);
+    }
+    50%{
+        font-size:33px;
+        transform: rotate(28deg);
+    }
+    100%{
+        font-size:35px;
+        transform: rotate(30deg);
     }
 }
