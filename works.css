@@ -18,7 +18,7 @@
     font-size:50px;
 }
 #title3{
-    animation:sizeChage 2s linear;
+    animation:sizeChage 3s linear;
     animation-iteration-count: infinite;
     animation-fill-mode: forwards;
     
@@ -26,7 +26,7 @@
     top:-100px;
     left:260px;
     font-size:35px;
-    color:#FF5722;
+    color:#2271ff;
     transform: rotate(30deg);
     font-weight:600;
 
@@ -90,14 +90,17 @@ a:visited{
 @keyframes sizeChage{
     0%{
         font-size:35px;
-        transform: rotate(30deg);
+        transform: rotate(32deg);
+        color:#2271ff;
     }
     50%{
-        font-size:33px;
+        font-size:30px;
         transform: rotate(28deg);
+        color:#2271ff80;
     }
     100%{
         font-size:35px;
-        transform: rotate(30deg);
+        transform: rotate(32deg);
+        color:#2271ff;
     }
 }

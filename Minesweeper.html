@@ -22,7 +22,14 @@ again.addEventListener("click",function(){
 var board = document.getElementsByClassName('board')[0];
 var all=[];
 var bombNumber=0;
+var rowNumber=100;
+var cellNumber=100;
+var probability=0.12;
 
+
+function delayRun(code,time) {
+var t=window.setTimeout(code,time);
+}
 
 
 
@@ -30,34 +37,70 @@ function open(element){
     var y = Number(element.dataset.row);
     var x = Number(element.dataset.cell);
     element.dataset.display='true';
+    
+        
     if(all[y][x] == 0){
-        element.innerHTML='';
-        for(var row = y-1;row<=y+1;row++){
-            for(var cell = x-1;cell<=x+1;cell++){
-                if(row>=0 && row<all.length && cell>=0 && cell<all.length){
-                    var a =document.querySelectorAll('[data-row="'+row+'"]')[cell];
-                    if(a.dataset.display == 'false'){
-                        open(a);
+        window.setTimeout(function(){
+            element.innerHTML='';
+            for(var row = y-1;row<=y+1;row++){
+                for(var cell = x-1;cell<=x+1;cell++){
+                    if(row>=0 && row<all.length && cell>=0 && cell<all.length){
+                        var a =document.querySelectorAll('[data-row="'+row+'"]')[cell];
+    
+                        if(a.dataset.display == 'false'){
+                            open(a);
+                            //window.setTimeout(function(){open(a);},1);
+                            
+                            
+                        }
                     }
                 }
             }
-        }
+        },1);    
     }else{
         element.innerHTML=all[y][x];
         element.dataset.number=all[y][x];
+            
+            
     }
+    
 }
+
+
 
 function over(win){
     if(win){
         board.dataset.gamestata='win';
-        board.innerHTML='win!!!'
+        board.innerHTML='win!!!';
     }else{
+
         board.dataset.gamestata='gameOver';
         var allCell = document.getElementsByClassName('cell');
-        for(var x = 0;x<allCell.length;x++){
-          var object = allCell[x];
-          open(object);
+        //for(var x = 0;x<allCell.length;x++){
+        //  var object = allCell[x];
+        //  open(object);
+        //}
+        for(var y = 0;y<cellNumber;y++){
+            for(var x =0;x<rowNumber;x++){
+                //if (all[y][x] == 9){
+                    var object = allCell[(x)*100+(y)];
+                    object.dataset.display='true';
+                    if(all[y][x]!=0){
+                        object.innerHTML=all[y][x];
+                        object.dataset.number=all[y][x];
+                    }
+                    
+                //}
+            }
+        } 
+        //for(var x = 0;x<allCell.length;x++){
+            
+            //var y = Number(object.dataset.row);
+            //var x = Number(object.dataset.cell);
+            
+            //object.dataset.display='true';
+            //object.innerHTML=all[y][x];
+            //object.dataset.number=all[y][x];
         }
     }
     again.style.fontSize=50;
@@ -65,7 +108,7 @@ function over(win){
 //        board.removeEventListener("click",boardClick);
 //        game();
 //    });
-}
+//}
 
 function game() {
     board = document.getElementsByClassName('board')[0];
@@ -73,14 +116,17 @@ function game() {
     bombNumber=0;
     
     board.dataset.gamestata='playing';
-    for(var row = 0;row<15;row++){
+//                  行数 ↓
+    for(var row = 0;row<rowNumber;row++){
         var newRow = document.createElement('div');
         all.push([]);
         newRow.className='row';
         board.append(newRow);
         newRow.style.top=row*46+20;
-        for(var cell = 0;cell<15;cell++){
-            if(Math.random()<0.1){
+//
+        for(var cell = 0;cell<cellNumber;cell++){
+//            if 内的是概率    ↓
+            if(Math.random()<probability){
                 all[all.length-1].push(9);
                 bombNumber++;
             }else{
@@ -96,6 +142,7 @@ function game() {
     
             newCell.addEventListener('click',function(e){
                 var element = e.target;
+                
                 open(element);
                 if(element.dataset.number == '9'){
                     over(false);
@@ -125,8 +172,8 @@ function game() {
             }
         }
     }
-    board.style.width=15*46+40;
-    board.style.height=15*46+40;
+    board.style.width=rowNumber*46+40;
+    board.style.height=cellNumber*46+40;
 }
 game();
 </script>
