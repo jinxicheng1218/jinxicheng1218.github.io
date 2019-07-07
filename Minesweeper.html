@@ -22,8 +22,8 @@ again.addEventListener("click",function(){
 var board = document.getElementsByClassName('board')[0];
 var all=[];
 var bombNumber=0;
-var rowNumber=100;
-var cellNumber=100;
+var rowNumber=50;
+var cellNumber=50;
 var probability=0.10;
 
 
@@ -83,7 +83,7 @@ function over(win){
         for(var y = 0;y<cellNumber;y++){
             for(var x =0;x<rowNumber;x++){
                 //if (all[y][x] == 9){
-                    var object = allCell[(x)*100+(y)];
+                    var object = allCell[(x)*cellNumber+(y)];
                     object.dataset.display='true';
                     if(all[y][x]!=0){
                         object.innerHTML=all[y][x];
