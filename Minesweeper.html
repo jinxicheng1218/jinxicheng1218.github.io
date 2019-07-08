@@ -22,9 +22,9 @@ again.addEventListener("click",function(){
 var board = document.getElementsByClassName('board')[0];
 var all=[];
 var bombNumber=0;
-var rowNumber=50;
-var cellNumber=50;
-var probability=0.10;
+var rowNumber=40;
+var cellNumber=40;
+var probability=0.09;
 
 
 function delayRun(code,time) {
@@ -56,7 +56,7 @@ function open(element){
                     }
                 }
             }
-        },0.1);    
+        },50);    
     }else{
         element.innerHTML=all[y][x];
         element.dataset.number=all[y][x];
