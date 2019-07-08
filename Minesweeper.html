@@ -56,7 +56,7 @@ function open(element){
                     }
                 }
             }
-        },1);    
+        },0.1);    
     }else{
         element.innerHTML=all[y][x];
         element.dataset.number=all[y][x];
@@ -102,12 +102,13 @@ function over(win){
             //object.innerHTML=all[y][x];
             //object.dataset.number=all[y][x];
         }
+        again.style.fontSize=50;
+        again.addEventListener("click",function boardClick(e){
+            board.removeEventListener("click",boardClick);
+            //game();
+        });
     }
-    again.style.fontSize=50;
-//    board.addEventListener("click",function boardClick(e){
-//        board.removeEventListener("click",boardClick);
-//        game();
-//    });
+    
 //}
 
 function game() {
