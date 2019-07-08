@@ -49,6 +49,16 @@ div.cell:hover{
     box-shadow 0 0 0 20px black;
     border-width:1;
 }
+.cell[data-display='no']{
+    /*transition:border-color 0.1s cubic-bezier(0, -2.14, 1, 1.01);*/
+    animation:openNo 0.2s linear;
+    width:45;
+    height:45;
+    background:rgba(0, 0, 0, 0);
+    border-color:rgba(0, 0, 0, 0.1);
+    box-shadow 0 0 0 20px black;
+    border-width:1;
+}
 div[data-number='1']{
     color:#3F51B5;
 }
@@ -79,6 +89,17 @@ div.cell[data-number='9']{
     }
     90{
         background:rgba(230, 230, 230, 255);
+    }
+    100%{
+        background:rgba(180, 180, 180, 255);
+    }
+}
+@keyframes openNo{
+    0%{
+        background:#ff57225);
+    }
+    90{
+        background:#ff57225);
     }
     100%{
         background:rgba(180, 180, 180, 255);

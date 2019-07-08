@@ -82,15 +82,15 @@ function over(win){
         //}
         for(var y = 0;y<cellNumber;y++){
             for(var x =0;x<rowNumber;x++){
-                //if (all[y][x] == 9){
+                if (all[y][x] == 9){
                     var object = allCell[(x)*cellNumber+(y)];
-                    object.dataset.display='true';
-                    if(all[y][x]!=0){
-                        object.innerHTML=all[y][x];
-                        object.dataset.number=all[y][x];
-                    }
+                    object.dataset.display='no';
+                    //if(all[y][x] == 9){
+                            object.innerHTML=all[y][x];
+                            object.dataset.number=all[y][x];
+                    //}
                     
-                //}
+                }
             }
         } 
         //for(var x = 0;x<allCell.length;x++){
