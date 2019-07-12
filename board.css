@@ -96,10 +96,10 @@ div.cell[data-number='9']{
 }
 @keyframes openNo{
     0%{
-        background:#ff57225);
+        background:#ff57225;
     }
     90{
-        background:#ff57225);
+        background:#ff57225;
     }
     100%{
         background:rgba(180, 180, 180, 255);

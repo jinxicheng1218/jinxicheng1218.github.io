@@ -24,9 +24,9 @@
     
     position:relative;
     top:-100px;
-    left:260px;
+    left:230px;
     font-size:35px;
-    color:#2271ff;
+    color:#ff0000;
     transform: rotate(30deg);
     font-weight:600;
 
@@ -91,16 +91,16 @@ a:visited{
     0%{
         font-size:35px;
         transform: rotate(32deg);
-        color:#2271ff;
+        color:#ff0000;
     }
     50%{
         font-size:30px;
         transform: rotate(28deg);
-        color:#2271ff80;
+        color:#ff2d2d91;
     }
     100%{
         font-size:35px;
         transform: rotate(32deg);
-        color:#2271ff;
+        color:#ff0000;
     }
 }
