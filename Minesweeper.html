@@ -22,9 +22,9 @@ again.addEventListener("click",function(){
 var board = document.getElementsByClassName('board')[0];
 var all=[];
 var bombNumber=0;
-var rowNumber=200;
-var cellNumber=200;
-var probability=0.15;
+var rowNumber=50;
+var cellNumber=50;
+var probability=0.12;
 
 
 function delayRun(code,time) {
@@ -37,26 +37,18 @@ function open(element){
     var y = Number(element.dataset.row);
     var x = Number(element.dataset.cell);
     element.dataset.display='true';
-    
-        
     if(all[y][x] == 0){
-        window.setTimeout(function(){
-            element.innerHTML='';
-            for(var row = y-1;row<=y+1;row++){
-                for(var cell = x-1;cell<=x+1;cell++){
-                    if(row>=0 && row<all.length && cell>=0 && cell<all.length){
-                        var a =document.querySelectorAll('[data-row="'+row+'"]')[cell];
-    
-                        if(a.dataset.display == 'false'){
-                            open(a);
-                            //window.setTimeout(function(){open(a);},1);
-                            
-                            
-                        }
+        element.innerHTML='';
+        for(var row = y-1;row<=y+1;row++){
+            for(var cell = x-1;cell<=x+1;cell++){
+                if(row>=0 && row<all.length && cell>=0 && cell<all.length){
+                    var a =document.querySelectorAll('[data-row="'+row+'"]')[cell];    
+                    if(a.dataset.display == 'false'){
+                        open(a);
                     }
                 }
             }
-        },50);    
+        }
     }else{
         element.innerHTML=all[y][x];
         element.dataset.number=all[y][x];
