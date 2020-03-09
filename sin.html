@@ -1,0 +1,109 @@
+<body>
+<canvas id="canvas" width="500" height="500"></canvas>
+<script>
+var c = document.getElementById('canvas');
+var cxt = c.getContext("2d");
+var size = 200
+var mouse = [0,0]
+
+function tx (x){
+    return 250+size*x;
+}
+function ty (y){
+    return 250-size*y;
+}
+function itx (x){
+    return (x-250)/size
+}
+function ity (y){
+    return (250-y)/size
+}
+function rou (n,r){
+    return Math.round(n*Math.pow(10,r))/Math.pow(10,r);
+}
+
+function draw_circle (x,y,r){
+    cxt.beginPath();
+    cxt.arc(tx(x),ty(y),r*size,0,2*Math.PI);
+    cxt.moveTo(tx(x),ty(y));
+    cxt.arc(tx(x),ty(y),2,0,2*Math.PI);
+    cxt.stroke();
+    cxt.fillText(x+r,tx(x)+size*r,ty(0)+10);
+    cxt.fillText(x-r,tx(x)-size*r,ty(0)+10);
+
+
+}
+function draw_coordinate (){
+    cxt.beginPath();
+    cxt.moveTo(250,0);
+    cxt.lineTo(250,500);
+    cxt.moveTo(0,250);
+    cxt.lineTo(500,250);
+    cxt.stroke();
+    cxt.fillText('x',490,260);
+    cxt.fillText('y',240,10);
+}
+function draw_tirg (x,y,r,c) {
+    cxt.fillStyle=c;
+    cxt.strokeStyle = c;
+    if (r.indexOf('pi') != -1) {
+        r = Number(r.replace('pi',''))*Math.PI;
+        var sin = Math.sin(r);
+        var cos = Math.cos(r);
+        cxt.fillText(rou(r/Math.PI,2)+'pi',tx(x+cos),ty(y+sin));
+
+    }else{
+        var sin = Math.sin(r);
+        var cos = Math.cos(r);
+        cxt.fillText(r,tx(x+cos),ty(y+sin));
+    }
+    
+    cxt.beginPath();
+    cxt.moveTo(tx(x),ty(y));
+    cxt.lineTo(tx(x+250*cos),ty(y+250*sin));
+    cxt.moveTo(tx(x+cos),ty(y+sin));
+    cxt.lineTo(tx(x+cos),ty(0));
+    cxt.moveTo(tx(x+cos),ty(y+sin));
+    cxt.lineTo(tx(0),ty(y+sin));
+    cxt.stroke();
+    cxt.fillText(rou(sin,2),tx(0),ty(y+sin))
+    cxt.fillText(rou(cos,2),tx(x+cos),ty(0))
+}
+function get (event) {
+    var e = event||window.event;
+    return [e.clientX,e.clientY];
+}
+function myTimer () {
+    var left = c.getBoundingClientRect().left;
+    var top = c.getBoundingClientRect().top;
+    
+    var x = itx(mouse[0]-left);
+    var y = ity(mouse[1]-top);
+    cxt.fillStyle='#FFFFFF'
+    cxt.fillRect(0,0,500,500)
+    cxt.beginPath();
+    cxt.strokeStyle = '#000000'
+    cxt.fillStyle='#000000'
+    cxt.beginPath();
+    cxt.arc(mouse[0]-left,mouse[1]-top,5,0,2*Math.PI);
+    cxt.stroke();
+    draw_coordinate();
+    draw_circle(0,0,1);
+    for (var i = 1;i<=12;i=i+1){
+        draw_tirg(0,0,i*1/6+'pi','#000000');
+    }
+    for (var i = 1/4;i<2;i=i+0.5){
+       draw_tirg(0,0,i+'pi','#000000');
+    }
+     draw_tirg(0,0,rou(Math.atan2(y,x)/Math.PI,2)+'pi','#FF0000');
+        //alert(Math.atan2(x,y));
+}
+
+document.onmousemove = function(){mouse = get(event)}
+
+
+
+var t = setInterval(function(){myTimer()}, 100);
+//draw_tirg(0,0,-2.5072334879128286)
+</script>
+</body>
