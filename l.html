@@ -1,29 +1,56 @@
 <meta charset='utf-8' />
 <meta name='viewport' content='width=device-width; initial-scale=0.5; maximum-scale=1; minimum-scale=0.5; user-scalable=no; target-densityDpi=device-dpi'>
 <body>
-<div>123</div>
-<script>
-function f (x){
-    var y = Math.pow(Math.abs(x),2/3)+0.9*Math.pow((3.3-Math.pow(x,2)),0.5)*Math.sin(200*x);
-    return y;
-}
-//var new_point = document.creatElement('div');
-for(var x = -2;x<2;x=x+0.01){
-    var new_point = document.createElement('div');
-    new_point.style.left = (x*1.1)*100+200
-    new_point.style.top = 300-(f(x))*100
-    new_point.innerHTML = '爱你'
-    document.getElementsByTagName('body')[0].appendChild(new_point);
-}
-</script>
 <style type="text/css">
 div{
+    color: #000000;
     position:fixed;
-    color:#FFFFFF;
-    background:rgb(200,0,20);
-    border-style:solid;
-    border-color:rgb(170,170,170) rgb(180,0,0) rgb(180,40,0) rgb(230,230,230);
-    border-width:0 2 2 0;
+    transition: color 2s linear;
+    font-size:40;
 }
 </style>
+<script>
+function f (x){
+    var y = Math.pow(Math.abs(x),2/3)+0.9*Math.pow((3.3-Math.pow(x,2)),0.5)*Math.sin(80*Math.PI*x);
+    return y;
+}
+
+function r (min,max){
+    return Math.round(Math.random()*(max-min)+min)
+}
+//var new_point = document.creatElement('div');
+var x = -2;
+
+function draw () {
+    //x = x+0.001
+    y = 350-(f(x))*100
+    if (y > 1){
+        var new_point = document.createElement('div');
+        h_l.push([(x*1.1)*100+200,y]);
+        new_point.style.left = (x*1.1)*100+200//r(0,500);
+        new_point.style.top = y//r(0,500);
+        new_point.style.color = '#FFFFFF';
+        new_point.innerHTML = '●';
+        new_point.className = 'h';
+        new_point.id = h_l.length-1;
+        document.getElementsByTagName('body')[0].appendChild(new_point);
+    }
+}
+
+var h_l = []
+var n = 1
+
+for(var x = -2;x<2;x=x+0.002){
+    draw()
+}
+
+setInterval(function(){
+    if (n < h_l.length){
+        var d = document.getElementById(n)
+        d.style.color = '#FF0000'
+        n = n+1
+    }
+},1);
+</script>
+
 </body>
