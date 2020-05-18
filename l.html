@@ -5,8 +5,8 @@
 div{
     color: #000000;
     position:fixed;
-    transition: color 2s linear;
-    font-size:40;
+    transition: all 1s cubic-bezier(0, 0, 1, 0.17);
+    font-size:1;
 }
 </style>
 <script>
@@ -26,11 +26,11 @@ function draw () {
     y = 350-(f(x))*100
     if (y > 1){
         var new_point = document.createElement('div');
-        h_l.push([(x*1.1)*100+200,y]);
-        new_point.style.left = (x*1.1)*100+200//r(0,500);
-        new_point.style.top = y//r(0,500);
-        new_point.style.color = '#FFFFFF';
-        new_point.innerHTML = '●';
+        h_l.push([(x*1.1)*100+250,y]);
+        new_point.style.left = r(0,500);
+        new_point.style.top = r(0,500);
+        new_point.style.color = '#FFFFFF00';
+        new_point.innerHTML = '❤';
         new_point.className = 'h';
         new_point.id = h_l.length-1;
         document.getElementsByTagName('body')[0].appendChild(new_point);
@@ -38,17 +38,23 @@ function draw () {
 }
 
 var h_l = []
-var n = 1
+var n = 0
 
 for(var x = -2;x<2;x=x+0.002){
     draw()
 }
-
+n = h_l.length-1
 setInterval(function(){
-    if (n < h_l.length){
-        var d = document.getElementById(n)
-        d.style.color = '#FF0000'
-        n = n+1
+    if (n > 0){
+        for (var i = 0;i<=5;i=i+1){
+            var d = document.getElementById(n-i)
+            d.style.color = '#FF0000'
+            d.style.top = h_l[n-i][1]
+            d.style.left = h_l[n-i][0]
+            d.style.fontSize = 30;
+            
+        }
+        n = n-5
     }
 },1);
 </script>
