@@ -1,0 +1,139 @@
+<meta charset='utf-8' />
+<meta name='viewport' content='width=device-width; initial-scale=0.5; maximum-scale=1; minimum-scale=0.5; user-scalable=no; target-densityDpi=device-dpi'>
+<body>
+    <table>
+        <tr>
+            <td>
+                <p>长</p>
+                <input placeholder='长' type='text' class='number_input' id='input_l'></input>
+            </td>
+            <td>
+                <p>高</p>
+                <input placeholder='高' type='text' class='number_input' id='input_h'></input>
+            </td>
+            <td>
+                <div id='draw_button' class='button'>生成画布</div>
+                <div id='next_button' class='button'>下一步</div>
+            </td>
+            <td>
+                <div id='start_button' class='button'>开始连续演化</div>
+            </td>
+        </tr>
+    </table>
+    <table id="board"></table>
+</body>
+<script>
+var draw_button = document.getElementById("draw_button");
+var next_button = document.getElementById("next_button");
+var start_button = document.getElementById("start_button");
+var board = document.getElementById("board");
+var grid_list_0 = [];
+var grid_list_1 = [];
+
+
+function draw_board () {
+     h = Number(document.getElementById('input_h').value)||0;
+     l = Number(document.getElementById('input_l').value)||0;
+    for (var r = 0;r<h;r++){
+        var grid = document.createElement("tr");
+        grid_list_0.push([]);
+        for (var g = 0;g<l;g++){
+            grid_list_0[r].push(0);
+            grid.append(document.createElement("td"));
+            var new_grid = document.createElement("div");
+            new_grid.innerHTML="0";
+            new_grid.className = "grid"
+            new_grid.id = r+","+g;
+            new_grid.addEventListener("click",function(e){
+                var ele = e.target;
+                var posion = ele.id.split(",")
+                if(grid_list_0[posion[0]][posion[1]]==0){
+                    grid_list_0[posion[0]][posion[1]]=1;
+                }else{
+                    grid_list_0[posion[0]][posion[1]]=0;
+                }
+                ele.innerHTML = grid_list_0[posion[0]][posion[1]];
+                ele.dataset.n = grid_list_0[posion[0]][posion[1]];
+            });
+            grid.append(new_grid);
+        }
+        board.append(grid);
+    }
+}
+function next_step(){
+    grid_list_1 = [];
+    for (var y = 0;y<h;y++){
+        grid_list_1.push([]);
+        for (var x = 0;x<l;x++){
+            grid_list_1[y].push([]);
+            var round = 0;
+            for (var x_n = x-1;x_n<x+2;x_n++){
+                if(x_n>=0 && x_n<l){
+                    for (var y_n = y-1;y_n<y+2;y_n++){
+                        if (y_n>=0 && y_n<h){
+                            if (grid_list_0[y_n][x_n]==1){
+                                round = round+1;
+                            }
+                        }
+                    }
+                }
+            }
+            if(round>=5||round<=2){
+                grid_list_1[y][x]=0;
+            }else if(round==3){
+                grid_list_1[y][x]=1;
+            }else{
+                grid_list_1[y][x]=grid_list_0[y][x]
+            }
+        }
+    }
+    grid_list_0 = grid_list_1;
+}
+
+function display(){
+    for (var x = 0;x<l;x++){
+        for (var y = 0;y<h;y++){
+            var grid=document.getElementById(y+","+x);
+            grid.innerHTML=grid_list_0[y][x];
+            grid.dataset.n=grid_list_0[y][x];
+        }
+    }
+}
+
+function clock (){
+    next_step();
+    display();
+}
+
+draw_button.onclick=function(){
+    draw_board();
+    //alert(l+","+h);
+}
+next_button.onclick=function(){
+    next_step();
+    display();
+}
+start_button.onclick=function(){
+    if(start_button.innerHTML=="开始连续演化"){
+        run_clock = self.setInterval("clock()",100);
+        start_button.innerHTML="结束连续演化"
+    }else{
+        self.clearInterval(run_clock);
+        start_button.innerHTML="开始连续演化"
+
+    }
+    
+}
+</script>
+<style type="text/css">
+div[data-n="0"]{
+    background:black;
+}
+div[data-n="1"]{
+    background:none;
+}
+.grid{
+    height:20px;
+    width:20px;
+}
+</style>
